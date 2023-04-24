@@ -6,6 +6,8 @@ module com.example.inventv_java {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
 
-    opens com.example.inventv_java to javafx.fxml;
-    exports com.example.inventv_java;
+    opens com.golkov.inventv to javafx.fxml;
+    exports com.golkov.inventv;
+    exports com.golkov.inventv.controller;
+    opens com.golkov.inventv.controller to javafx.fxml;
 }

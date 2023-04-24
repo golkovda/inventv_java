@@ -1,9 +1,9 @@
-package com.example.inventv_java;
+package com.golkov.inventv.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class StartbildschirmController {
     @FXML
     private Label welcomeText;
 

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="300.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="300.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <GridPane minHeight="80.0" minWidth="300.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Verbunden mit">
+                    <padding>
+                        <Insets right="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                </Label>
+                <Label alignment="TOP_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="als" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets right="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <Label fx:id="lblConnectionAdress" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="[Platzhalter]" GridPane.columnIndex="1">
+                    <padding>
+                        <Insets right="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <Label fx:id="lblUsername" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="[Platzhalter]" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets right="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+            </children>
+        </GridPane>
+        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="300.0" style="-fx-border-style: solid none none none;" GridPane.rowIndex="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="150.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="btnStartseite" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../../../../com.golkov.inventv.css/buttonstyles.css" text="Startseite" textAlignment="CENTER" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Segoe UI" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button fx:id="btnBenutzerverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #d9d9d9;" text="Benutzerverwaltung" textAlignment="CENTER" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Segoe UI" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button fx:id="btnObjektverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #d9d9d9;" text="Objektverwaltung" textAlignment="CENTER" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Segoe UI" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button fx:id="btnAusleihenverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #d9d9d9;" text="Ausleihenverwaltung" textAlignment="CENTER" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Segoe UI" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <ImageView fx:id="imgLogo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                    <image>
+                        <Image url="@../../../../com.golkov.inventv.images/Placeholder.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="btnInfo" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #ccd9ff; -fx-border-radius: 0;" text="Info" textAlignment="CENTER" GridPane.rowIndex="6">
+                    <font>
+                        <Font name="Segoe UI" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </GridPane>
+        <AnchorPane fx:id="vpAnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid none none solid;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="300.0" style="-fx-border-style: hidden hidden hidden solid;" GridPane.columnIndex="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="711.0" minWidth="10.0" prefWidth="300.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="719.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="lblBriefText" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" prefWidth="736.0" style="-fx-border-style: none solid none none;" text="[Platzhalter]" textAlignment="CENTER" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="Segoe UI" size="50.0" />
+                    </font>
+                    <padding>
+                        <Insets right="20.0" />
+                    </padding>
+                </Label>
+            </children>
+        </GridPane>
+    </children>
+</GridPane>

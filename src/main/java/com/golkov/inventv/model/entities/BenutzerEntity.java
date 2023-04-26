@@ -41,10 +41,27 @@ public class BenutzerEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getKennung() {
+        return kennung;
+    }
+
+    public void setKennung(String kennung) {
+        this.kennung = kennung;
+    }
+
+    public boolean isAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(boolean administrator) {
+        this.administrator = administrator;
+    }
 
     private int ID;
+    private String kennung;
     private String nachname;
     private String vorname;
     private String telefon;
     private String email;
+    private boolean administrator;
 }

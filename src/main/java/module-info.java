@@ -5,6 +5,7 @@ module com.example.inventv_java {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
+    requires org.apache.logging.log4j;
 
     opens com.golkov.inventv to javafx.fxml;
     exports com.golkov.inventv;

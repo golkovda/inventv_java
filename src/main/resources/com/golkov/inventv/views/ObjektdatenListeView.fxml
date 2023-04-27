@@ -20,9 +20,9 @@
    <rowConstraints>
       <RowConstraints />
       <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="NEVER" />
-      <RowConstraints maxHeight="169.0" minHeight="169.0" prefHeight="169.0" vgrow="NEVER" />
+      <RowConstraints maxHeight="175.0" minHeight="175.0" prefHeight="175.0" vgrow="NEVER" />
       <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="NEVER" />
-      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="353.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="362.0" vgrow="ALWAYS" />
    </rowConstraints>
    <children>
       <GridPane maxWidth="1.7976931348623157E308" GridPane.rowIndex="2">

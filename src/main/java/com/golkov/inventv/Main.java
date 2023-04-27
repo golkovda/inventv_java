@@ -19,9 +19,10 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         try {
             logger.info("Initialising Scene...");
-            logger.debug("Loading StartbildschirmView.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/StartbildschirmView.fxml"));
+            logger.debug("Loading NavigationWindowView.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/NavigationWindowView.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+            //scene.getStylesheets().add(Main.class..getResource("com.golkov.inventv.css/buttonstyles.css").toExternalForm());
             stage.setTitle("Hello!");
             stage.setScene(scene);
             stage.show();

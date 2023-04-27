@@ -1,13 +1,16 @@
 package com.golkov.inventv.model.entities;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name="Benutzer")
 public class BenutzerEntity {
 
+    //region getters and setters
     public int getID() {
         return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getNachname() {
@@ -57,11 +60,34 @@ public class BenutzerEntity {
         this.administrator = administrator;
     }
 
+    public Set<AusleihEntity> getAusleihen() {
+        return ausleihen;
+    }
+
+    //endregion
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="BenutzerID", nullable = false)
     private int ID;
+
+    @Column(name="Kennung", length=20, nullable = false)
     private String kennung;
+
+    @Column(name="Nachname", length=50, nullable = false)
     private String nachname;
+
+    @Column(name="Vorname", length=50, nullable = false)
     private String vorname;
+
+    @Column(name="Telefon", length=20)
     private String telefon;
+    @Column(name="EMail", length=50)
     private String email;
+
+    @Column(name="Administrator", nullable = false)
     private boolean administrator;
+
+    @OneToMany(mappedBy="Benutzer", cascade = CascadeType.ALL)
+    private Set<AusleihEntity> ausleihen = new HashSet<>();
 }

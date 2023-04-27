@@ -4,6 +4,7 @@ import com.golkov.inventv.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -13,10 +14,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StartbildschirmController {
+public class NavigationViewController implements Initializable {
 
-    private static final Logger logger = LogManager.getLogger(StartbildschirmController.class);
+    private static final Logger logger = LogManager.getLogger(NavigationViewController.class);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        logger.info("Initializing NavigationViewController...");
+        lblBriefText.setText("Startseite");
+        loadPane(vpAnchorPane, "views/StartseiteView.fxml");
+    }
+
     @FXML
     private Button btnAusleihenverwaltung;
 
@@ -49,27 +60,36 @@ public class StartbildschirmController {
 
     @FXML
     void ausleihenverwaltungButtonTapped(ActionEvent event) throws IOException {
-        //TODO: AusleihendatenListeView.fxml erstellen und Code ergänzen
+        lblBriefText.setText("Ausleihenverwaltung");
+        loadPane(vpAnchorPane, "views/AusleihenListeView.fxml");
     }
 
     @FXML
     void benutzerverwaltungButtonTapped(ActionEvent event) throws IOException {
+        logger.info("Knopf gedrückt: Benutzerverwaltung");
+        lblBriefText.setText("Benutzerverwaltung");
         loadPane(vpAnchorPane, "views/BenutzerdatenListeView.fxml");
     }
 
     @FXML
     void infoButtonTapped(ActionEvent event) {
-
+        logger.info("Knopf gedrückt: Info");
+        lblBriefText.setText("Über das Programm");
+        //TODO: InfoView.fxml erstellen und Code ergänzen
     }
 
     @FXML
     void objektverwaltungButtonTapped(ActionEvent event) {
-
+        logger.info("Knopf gedrückt: Objektverwaltung");
+        lblBriefText.setText("Objektverwaltung");
+        loadPane(vpAnchorPane, "views/ObjektdatenListeView.fxml");
     }
 
     @FXML
     void startseiteButtonTapped(ActionEvent event) {
-
+        logger.info("Knopf gedrückt: Startseite");
+        lblBriefText.setText("Startseite");
+        loadPane(vpAnchorPane, "views/StartseiteView.fxml");
     }
 
     private void loadPane(AnchorPane ap, String resource){
@@ -92,6 +112,4 @@ public class StartbildschirmController {
             logger.error(e.getMessage());
         }
     }
-
-
 }

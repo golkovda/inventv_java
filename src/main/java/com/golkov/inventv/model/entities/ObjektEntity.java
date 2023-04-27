@@ -1,31 +1,32 @@
 package com.golkov.inventv.model.entities;
 
+import javax.persistence.*;
 import java.security.Timestamp;
 
+@Entity
+@Table(name="Objekt")
 public class ObjektEntity {
+
+    //region getters and setters
 
     public int getID() {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public TypEntity getTyp() {
+        return typ;
     }
 
-    public int getTypID() {
-        return typID;
+    public void setTyp(TypEntity typ) {
+        this.typ = typ;
     }
 
-    public void setTypID(int typID) {
-        this.typID = typID;
+    public AblageortEntity getAblageort() {
+        return ablageort;
     }
 
-    public int getAblageortID() {
-        return ablageortID;
-    }
-
-    public void setAblageortID(int ablageortID) {
-        this.ablageortID = ablageortID;
+    public void setAblageort(AblageortEntity ablageort) {
+        this.ablageort = ablageort;
     }
 
     public int getInventarnummer() {
@@ -68,13 +69,28 @@ public class ObjektEntity {
         this.einzelpreis = einzelpreis;
     }
 
+    //endregion
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="ObjektID", nullable = false)
     private int ID;
-    private int typID;
-    private int ablageortID;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="TypID",referencedColumnName = "TypID")
+    private TypEntity typ;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="AblageortID",referencedColumnName = "AblageortID")
+    private AblageortEntity ablageort;
+    @Column(name="Inventarnummer", nullable = false)
     private int inventarnummer;
+    @Column(name="Hersteller", length=100, nullable = false)
     private String hersteller;
+    @Column(name="Modell", length=100, nullable = false)
     private String modell;
+    @Column(name="Kaufdatum", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Timestamp kaufdatum;
+    @Column(name="Einzelpreis", nullable = false)
     private float einzelpreis;
 
 }

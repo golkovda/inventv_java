@@ -1,6 +1,9 @@
 package com.golkov.inventv.controller;
 
 import com.golkov.inventv.Main;
+import com.golkov.inventv.model.daos.BenutzerDAO;
+import com.golkov.inventv.model.entities.BenutzerEntity;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -69,6 +72,14 @@ public class NavigationViewController implements Initializable {
         logger.info("Knopf gedrückt: Benutzerverwaltung");
         lblBriefText.setText("Benutzerverwaltung");
         loadPane(vpAnchorPane, "views/BenutzerdatenListeView.fxml");
+
+        BenutzerDAO bdao = new BenutzerDAO();
+        ObservableList<BenutzerEntity> allEntities = bdao.getAllEntities();
+
+        for (BenutzerEntity be : allEntities) {
+            System.out.println(be.getNachname());
+        }
+
     }
 
     @FXML

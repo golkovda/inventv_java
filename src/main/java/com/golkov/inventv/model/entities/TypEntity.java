@@ -1,6 +1,6 @@
 package com.golkov.inventv.model.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="Typ")

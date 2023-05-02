@@ -1,16 +1,40 @@
 package com.golkov.inventv.model.entities;
 
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name="Benutzer")
-public class BenutzerEntity {
+public class BenutzerEntity implements Serializable {
+
+    public BenutzerEntity() {}
+
+    public BenutzerEntity(String kennung, String nachname, String vorname, boolean administrator) {
+        this.kennung = kennung;
+        this.nachname = nachname;
+        this.vorname = vorname;
+        this.administrator = administrator;
+    }
 
     //region getters and setters
+
     public int getID() {
         return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getKennung() {
+        return kennung;
+    }
+
+    public void setKennung(String kennung) {
+        this.kennung = kennung;
     }
 
     public String getNachname() {
@@ -44,13 +68,6 @@ public class BenutzerEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getKennung() {
-        return kennung;
-    }
-
-    public void setKennung(String kennung) {
-        this.kennung = kennung;
-    }
 
     public boolean isAdministrator() {
         return administrator;
@@ -60,15 +77,19 @@ public class BenutzerEntity {
         this.administrator = administrator;
     }
 
-    public Set<AusleihEntity> getAusleihen() {
+    /*public Set<AusleihEntity> getAusleihen() {
         return ausleihen;
     }
+
+    public void setAusleihen(Set<AusleihEntity> ausleihen) {
+        this.ausleihen = ausleihen;
+    }*/
 
     //endregion
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="BenutzerID", nullable = false)
+    @Column(name="BenutzerID")
     private int ID;
 
     @Column(name="Kennung", length=20, nullable = false)
@@ -88,6 +109,8 @@ public class BenutzerEntity {
     @Column(name="Administrator", nullable = false)
     private boolean administrator;
 
-    @OneToMany(mappedBy="Benutzer", cascade = CascadeType.ALL)
-    private Set<AusleihEntity> ausleihen = new HashSet<>();
+   /* @OneToMany(mappedBy="Benutzer", cascade = CascadeType.ALL)
+    private Set<AusleihEntity> ausleihen = new HashSet<>();*/
+
+
 }

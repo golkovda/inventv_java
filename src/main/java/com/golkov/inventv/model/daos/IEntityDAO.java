@@ -7,5 +7,5 @@ public interface IEntityDAO<T> {
     public void updateEntity(T entity);
     public void deleteEntity(int id);
     public T getEntityById(int id);
-    public ObservableList<T> getAllEntities();
+    //public ObservableList<T> getAllEntities();
 }

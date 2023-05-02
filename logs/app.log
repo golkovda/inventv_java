@@ -1,144 +1,846 @@
-[INFO ] 2023-04-28 16:01:51.756 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:01:51.834 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:01:52.623 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:01:52.624 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:01:52.686 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:01:53.356 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:01:56.397 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:01:56.397 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:04:11.470 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:04:11.524 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:04:12.074 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:04:12.074 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:04:12.094 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:04:12.555 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:04:14.184 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:04:14.185 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:48:37.924 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:48:37.976 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:48:38.553 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:48:38.554 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:48:38.587 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:48:39.006 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:48:41.680 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:48:41.680 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:49:08.769 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:49:08.814 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:49:09.289 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:49:09.290 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:49:09.314 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:49:09.674 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:49:10.987 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:49:10.988 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:51:43.947 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:51:43.993 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:51:44.453 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:51:44.454 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:51:44.479 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:51:44.833 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:51:47.839 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:51:47.840 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:54:44.432 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:54:44.475 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:54:44.970 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:54:44.971 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:54:44.995 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:54:45.356 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:54:56.594 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:54:56.595 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:55:33.878 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:55:33.921 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:55:34.495 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:55:34.496 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:55:34.524 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:55:34.900 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:55:51.246 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:55:51.247 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:56:54.595 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:56:54.631 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:56:55.086 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:56:55.087 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:56:55.109 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:56:55.451 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:57:08.583 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:57:08.583 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:59:05.345 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 16:59:05.389 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 16:59:05.903 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 16:59:05.904 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 16:59:05.953 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 16:59:06.327 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 16:59:07.553 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 16:59:07.554 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:16:25.428 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:16:25.474 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:16:25.951 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:16:25.952 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:16:25.983 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:16:26.387 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:16:27.586 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:16:27.587 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:22:38.079 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:22:38.132 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:22:38.616 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:22:38.617 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:22:38.641 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:22:39.174 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:22:44.313 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:22:44.313 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:23:06.358 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:23:06.398 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:23:06.856 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:23:06.857 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:23:06.879 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:23:07.276 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:23:08.476 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:23:08.477 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:23:55.918 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:23:55.961 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:23:56.406 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:23:56.407 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:23:56.430 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:23:56.777 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:23:58.134 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:23:58.135 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:26:05.278 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:26:05.322 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:26:05.801 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:26:05.801 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:26:05.825 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:26:06.180 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:26:07.587 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:26:07.588 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:27:12.005 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:27:12.053 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:27:12.562 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:27:12.563 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:27:12.592 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:27:12.938 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:27:14.681 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:27:14.682 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:27:27.998 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:27:28.042 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:27:28.571 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:27:28.572 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:27:28.599 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:27:29.089 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:27:30.212 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:27:30.213 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:28:04.165 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:28:04.215 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:28:04.808 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:28:04.809 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:28:04.832 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:28:05.230 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:28:06.338 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:28:06.339 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:31:29.748 [main] > Main >> main - Initialising program...
-[INFO ] 2023-04-28 17:31:29.793 [JavaFX Application Thread] > Main >> start - Initialising Scene...
-[INFO ] 2023-04-28 17:31:30.369 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
-[INFO ] 2023-04-28 17:31:30.370 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
-[INFO ] 2023-04-28 17:31:30.418 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
-[INFO ] 2023-04-28 17:31:30.825 [JavaFX Application Thread] > Main >> start - Finished loading Scene
-[INFO ] 2023-04-28 17:31:33.438 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
-[INFO ] 2023-04-28 17:31:33.438 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:08:43.100 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:08:43.168 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:08:43.734 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:08:43.735 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:08:43.791 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:08:44.333 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:08:45.561 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:08:45.563 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:08:45.975 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[INFO ] 2023-05-02 13:32:26.493 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:32:26.528 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:32:27.027 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:32:27.028 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:32:27.076 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:32:27.422 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:32:28.538 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:32:28.539 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:32:28.990 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[INFO ] 2023-05-02 13:39:38.179 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:39:38.235 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:39:38.730 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:39:38.731 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:39:38.755 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:39:39.164 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:39:40.351 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:39:40.352 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:39:40.653 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[INFO ] 2023-05-02 13:40:55.504 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:40:55.544 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:40:55.982 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:40:55.982 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:40:56.004 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:40:56.406 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:40:57.533 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:40:57.533 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:40:57.701 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[INFO ] 2023-05-02 13:45:24.789 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:45:24.831 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:45:25.290 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:45:25.291 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:45:25.334 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:45:25.759 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:45:26.770 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:45:26.771 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:45:27.135 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 13:45:28.644 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 13:45:28.650 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 13:45:28.650 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 13:45:28.651 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 13:45:28.651 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 13:45:28.655 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 13:45:28.794 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 13:45:29.207 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 13:49:15.131 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:49:15.175 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:49:15.743 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:49:15.744 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:49:15.778 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:49:16.188 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:49:17.670 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:49:17.671 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:49:18.137 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 13:49:19.186 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 13:49:19.188 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 13:49:19.189 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 13:49:19.189 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 13:49:19.189 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 13:49:19.192 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 13:49:19.301 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 13:49:19.639 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 13:50:52.699 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:50:52.748 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:50:53.297 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:50:53.298 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:50:53.327 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:50:53.755 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:50:54.887 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:50:54.887 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:50:55.272 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 13:50:56.417 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 13:50:56.421 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 13:50:56.421 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 13:50:56.421 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 13:50:56.422 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 13:50:56.425 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 13:50:56.536 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 13:50:56.861 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 13:50:58.732 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:50:58.733 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:51:00.873 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:51:00.873 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:51:02.377 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:51:02.377 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:51:36.859 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:51:36.908 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:51:37.379 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:51:37.380 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:51:37.405 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:51:37.758 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:51:38.898 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:51:38.899 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:51:39.308 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 13:51:40.266 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 13:51:40.270 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 13:51:40.270 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 13:51:40.271 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 13:51:40.271 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 13:51:40.274 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 13:51:40.392 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 13:51:40.751 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 13:59:32.319 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:59:32.376 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:59:32.957 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:59:32.958 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:59:32.990 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 13:59:33.428 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 13:59:34.365 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 13:59:34.366 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:59:34.813 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 13:59:36.499 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 13:59:36.503 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 13:59:36.504 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 13:59:36.505 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 13:59:36.505 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 13:59:36.511 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 13:59:36.664 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 13:59:37.104 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 13:59:59.164 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 13:59:59.209 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 13:59:59.843 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 13:59:59.844 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 13:59:59.874 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:00:00.465 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:00:03.633 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:00:03.634 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:00:04.045 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:00:05.372 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:00:05.376 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:00:05.377 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:00:05.377 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:00:05.378 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:00:05.380 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:00:05.476 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:00:05.863 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:05:13.281 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:05:13.336 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:05:13.994 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:05:13.995 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:05:14.022 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:05:14.416 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:06:11.584 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:06:11.623 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:06:12.094 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:06:12.095 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:06:12.128 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:06:12.521 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:06:14.326 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:06:14.326 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:06:14.500 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:06:15.250 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:06:15.253 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:06:15.253 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:06:15.254 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:06:15.254 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:06:15.259 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:06:15.366 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:06:15.682 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:09:16.921 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:09:16.971 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:09:17.429 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:09:17.430 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:09:17.452 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:09:17.837 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:09:18.892 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:09:18.893 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:09:19.237 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:09:20.416 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:09:20.418 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:09:20.418 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:09:20.419 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:09:20.419 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:09:20.421 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:09:20.514 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:09:20.830 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:18:54.992 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:18:55.042 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:18:55.557 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:18:55.558 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:18:55.577 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:18:55.963 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:19:06.387 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:19:06.388 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:19:06.592 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:19:07.498 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:19:07.501 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:19:07.501 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:19:07.502 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:19:07.502 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:19:07.506 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:19:07.628 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:19:08.113 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:19:49.781 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:19:49.884 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:19:50.413 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:19:50.414 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:19:50.439 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:19:50.854 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:19:52.036 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:19:52.037 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:19:52.435 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:19:53.546 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:19:53.549 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:19:53.549 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:19:53.550 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:19:53.550 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:19:53.553 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:19:53.660 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:19:54.012 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:28:52.821 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:28:52.863 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:28:53.293 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:28:53.294 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:28:53.309 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:28:53.580 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:28:54.767 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:28:54.768 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:28:55.035 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:28:55.738 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:28:55.741 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:28:55.741 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:28:55.741 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:28:55.741 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:28:55.743 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:28:55.825 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:28:56.075 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:30:49.755 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:30:49.800 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:30:50.351 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:30:50.352 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:30:50.387 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:30:50.934 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:30:51.910 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:30:51.911 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:30:52.325 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:30:53.665 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:30:53.669 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:30:53.669 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:30:53.670 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:30:53.670 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:30:53.673 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:30:53.787 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:30:54.145 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:37:14.986 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:37:15.028 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:37:15.500 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:37:15.502 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:37:15.528 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:37:15.921 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:37:16.906 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:37:16.907 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:37:17.357 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:37:18.761 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:37:18.764 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:37:18.765 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:37:18.766 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:37:18.766 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:37:18.770 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:37:18.893 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:37:19.286 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 14:44:05.376 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:44:05.421 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:44:05.875 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:44:05.875 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:44:05.895 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:44:06.235 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:44:39.050 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:44:39.050 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:44:39.206 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:44:39.927 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:44:39.930 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:44:39.930 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:44:39.931 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:44:39.931 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:44:39.934 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:44:40.038 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:44:40.550 [JavaFX Application Thread] > pooling >> stop - HHH10001008: Cleaning up connection pool [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:46:51.356 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 14:46:51.405 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 14:46:51.868 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 14:46:51.869 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:46:51.888 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 14:46:52.272 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 14:46:53.455 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 14:46:53.455 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 14:46:53.626 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 14:46:54.376 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 14:46:54.378 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 14:46:54.378 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 14:46:54.379 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 14:46:54.379 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 14:46:54.381 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 14:46:54.477 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 14:46:55.411 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:16:31.313 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:16:31.381 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:16:31.969 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:16:31.970 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:16:31.998 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:16:32.490 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:16:33.689 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:16:33.691 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:16:34.091 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:16:35.209 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:16:35.213 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:16:35.213 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:16:35.214 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:16:35.214 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:16:35.218 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:16:35.350 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:16:36.461 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:16:36.474 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:16:57.093 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:16:57.093 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:16:57.125 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:17:28.546 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:17:28.546 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:17:28.579 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:18:56.381 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:18:56.428 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:18:56.951 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:18:56.952 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:18:56.981 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:18:57.360 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:18:59.431 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:18:59.431 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:26:50.276 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:26:50.322 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:26:50.851 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:26:50.852 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:26:50.879 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:26:51.250 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:26:52.345 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:26:52.346 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:26:52.410 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:26:52.410 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:26:58.775 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:26:58.776 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:26:58.780 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:26:58.780 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:27:00.366 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:27:00.366 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:00.369 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:00.369 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:27:01.082 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:27:01.082 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:01.085 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:01.085 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:27:47.834 [JavaFX Application Thread] > NavigationViewController >> objektverwaltungButtonTapped - Knopf gedrückt: Objektverwaltung
+[INFO ] 2023-05-02 15:27:47.834 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/ObjektdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:27:50.070 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:27:50.070 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:50.073 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:50.074 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:27:51.217 [JavaFX Application Thread] > NavigationViewController >> objektverwaltungButtonTapped - Knopf gedrückt: Objektverwaltung
+[INFO ] 2023-05-02 15:27:51.218 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/ObjektdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:27:52.394 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:27:52.394 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:52.397 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:27:52.397 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:27:53.156 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/AusleihenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:27:54.218 [JavaFX Application Thread] > NavigationViewController >> objektverwaltungButtonTapped - Knopf gedrückt: Objektverwaltung
+[INFO ] 2023-05-02 15:27:54.218 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/ObjektdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:28:34.944 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:28:34.981 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:28:35.422 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:28:35.423 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:28:35.442 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:28:35.784 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:28:37.241 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:28:37.242 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:28:37.337 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:28:37.337 [JavaFX Application Thread] > NavigationViewController >> loadPane - No controller specified.
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:120
+
+[INFO ] 2023-05-02 15:28:38.931 [JavaFX Application Thread] > NavigationViewController >> objektverwaltungButtonTapped - Knopf gedrückt: Objektverwaltung
+[INFO ] 2023-05-02 15:28:38.931 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/ObjektdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:28:40.535 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:28:40.535 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:28:40.552 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:28:40.552 [JavaFX Application Thread] > NavigationViewController >> loadPane - No controller specified.
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:120
+
+[INFO ] 2023-05-02 15:29:04.917 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:29:04.966 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:29:05.407 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:29:05.408 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:29:05.428 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:29:05.788 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:29:06.900 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:29:06.901 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:29:06.953 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:29:06.953 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:29:39.658 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:29:39.699 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:29:40.190 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:29:40.191 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:29:40.214 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:29:40.570 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:29:41.550 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:29:41.551 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:29:41.570 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:29:41.570 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:33:32.927 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:33:32.971 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:33:33.482 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:33:33.483 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:33:33.510 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:33:33.905 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:33:34.965 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:33:34.965 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:33:35.166 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:33:36.386 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:33:36.390 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:33:36.390 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:33:36.391 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:33:36.391 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:33:36.395 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:33:36.517 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:33:37.518 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:33:37.623 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 15:33:40.165 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:35:44.228 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:35:44.283 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:35:44.697 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:35:44.698 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:35:44.719 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:35:45.086 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:35:46.055 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:35:46.056 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:35:46.228 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:35:47.229 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:35:47.232 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:35:47.232 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:35:47.232 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:35:47.232 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:35:47.235 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:35:47.345 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:35:48.267 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:35:48.376 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 15:35:49.533 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:36:27.896 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:36:27.952 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:36:28.428 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:36:28.428 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:36:28.450 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:36:28.804 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:36:29.854 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:36:29.856 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:36:29.990 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:36:30.881 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:36:30.885 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:36:30.885 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:36:30.886 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:36:30.886 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:36:30.889 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:36:30.999 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:36:31.970 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:36:32.085 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 15:36:33.027 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:36:44.074 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:36:45.844 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:39:26.104 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:39:26.146 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:39:26.612 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:39:26.612 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:39:26.639 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:39:27.077 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:39:28.103 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:39:28.104 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:39:28.124 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:39:28.124 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:41:14.204 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:41:14.244 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:41:14.697 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:41:14.697 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:41:14.723 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:41:15.069 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:41:16.273 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:41:16.274 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:41:16.305 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:41:16.305 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:46:37.250 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:46:37.303 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:46:37.895 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:46:37.896 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:46:37.922 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:46:38.287 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:46:39.417 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:46:39.418 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:46:39.454 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:46:39.455 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:49:23.162 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:49:23.211 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:49:23.723 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:49:23.724 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:49:23.749 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:49:24.122 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:49:25.187 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:49:25.188 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:49:25.202 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:49:25.202 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:56:09.147 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:56:09.191 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:56:09.691 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:56:09.691 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:56:09.721 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:56:10.111 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:56:11.277 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:56:11.278 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:56:11.306 [JavaFX Application Thread] > NavigationViewController >> loadPane - Failed to load 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[ERROR] 2023-05-02 15:56:11.306 [JavaFX Application Thread] > NavigationViewController >> loadPane - 
+/C:/Users/Admin/IdeaProjects/inventv_java/target/classes/com/golkov/inventv/views/BenutzerdatenListeView.fxml:14
+
+[INFO ] 2023-05-02 15:56:38.908 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:56:38.958 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:56:39.501 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:56:39.502 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:56:39.531 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:56:39.918 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:56:40.966 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:56:40.967 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:56:41.128 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:56:42.495 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:56:42.498 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:56:42.499 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:56:42.499 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:56:42.500 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:56:42.503 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:56:42.633 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:56:43.577 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:56:43.673 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[WARN ] 2023-05-02 15:56:43.674 [JavaFX Application Thread] > BenutzerdatenListeViewController >> getFoundEntities - getFoundEntities is null
+[INFO ] 2023-05-02 15:56:46.437 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:57:33.802 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:57:33.844 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:57:34.353 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:57:34.353 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:57:34.381 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:57:34.740 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:57:35.712 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:57:35.713 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:57:35.898 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:57:37.175 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:57:37.178 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:57:37.179 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:57:37.179 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:57:37.179 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:57:37.182 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:57:37.282 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:57:38.197 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:57:38.309 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 15:57:41.139 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:58:56.897 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 15:58:56.943 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 15:58:57.392 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 15:58:57.393 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:58:57.415 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 15:58:57.760 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 15:58:58.758 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 15:58:58.759 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 15:58:58.930 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 15:58:59.821 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 15:58:59.824 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 15:58:59.824 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 15:58:59.825 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 15:58:59.825 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 15:58:59.827 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 15:58:59.931 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 15:59:00.912 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 15:59:01.020 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 15:59:02.151 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 15:59:05.845 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:05:14.816 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:05:14.867 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:05:15.375 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:05:15.375 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:05:15.402 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:05:15.757 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:05:16.751 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:05:16.752 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:05:16.931 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:05:18.282 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:05:18.285 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:05:18.285 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:05:18.286 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:05:18.286 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:05:18.289 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:05:18.393 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:05:19.322 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:05:19.414 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:05:21.824 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:05:26.956 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:13:34.249 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:13:34.295 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:13:34.774 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:13:34.775 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:13:34.797 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:13:35.142 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:13:36.815 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:13:36.816 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:13:36.978 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:13:38.009 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:13:38.012 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:13:38.012 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:13:38.013 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:13:38.013 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:13:38.016 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:13:38.136 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:13:39.163 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:13:39.294 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:13:39.295 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:13:41.600 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:13:41.600 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:13:41.905 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:14:40.061 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:14:40.062 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:14:40.068 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:15:13.874 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:15:13.924 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:15:17.263 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:15:17.264 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:15:17.295 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:15:17.819 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:15:19.326 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:15:19.327 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:15:19.724 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:15:24.460 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:15:24.466 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:15:24.466 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:15:24.467 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:15:24.467 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:15:24.472 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:15:27.790 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:15:28.895 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:15:29.050 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:15:29.051 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:15:33.936 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:15:33.936 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:15:34.082 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:15:34.083 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:15:41.878 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:15:59.966 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:16:53.873 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:17:20.060 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:17:20.097 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:17:21.620 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:17:21.620 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:17:21.657 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:17:22.149 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:17:25.833 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:17:25.834 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:17:25.987 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:17:29.576 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:17:29.580 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:17:29.581 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:17:29.581 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:17:29.581 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:17:29.586 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:17:31.919 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:17:33.057 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:17:33.222 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:17:33.223 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:17:38.483 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:17:44.536 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:18:09.028 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:24:21.172 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:24:21.209 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:24:21.631 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:24:21.632 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:24:21.657 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:24:22.029 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:24:55.243 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:24:55.243 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:24:55.319 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:24:55.988 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:24:55.991 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:24:55.991 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:24:55.991 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:24:55.991 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:24:55.994 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:24:56.094 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:24:57.076 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:24:57.199 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:24:57.200 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:24:58.391 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:24:58.391 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:24:58.680 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:28:01.115 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:28:01.154 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:28:01.642 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:28:01.642 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:28:01.662 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:28:02.103 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:28:03.539 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:28:03.540 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:28:03.719 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:28:04.823 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:28:04.826 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:28:04.827 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:28:04.827 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:28:04.827 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:28:04.830 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:28:04.946 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:28:05.952 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:28:06.063 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:28:06.064 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:28:07.179 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:28:07.179 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:28:07.514 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:28:57.471 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:28:57.519 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:28:58.133 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:28:58.134 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:28:58.170 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:28:58.604 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:28:59.727 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:28:59.729 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:28:59.929 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:29:01.497 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:29:01.502 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:29:01.503 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:29:01.503 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:29:01.504 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:29:01.507 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:29:01.643 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:29:02.784 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:29:02.927 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:29:02.928 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:29:04.001 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:29:04.001 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:29:04.353 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:29:53.269 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:29:53.314 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:29:53.818 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:29:53.819 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:29:53.847 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:29:54.269 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:29:55.287 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:29:55.288 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:29:55.594 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:29:56.759 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:29:56.762 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:29:56.762 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:29:56.763 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:29:56.763 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:29:56.767 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:29:56.886 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:29:57.887 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:29:58.000 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:29:58.001 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:29:59.067 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:29:59.067 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:29:59.377 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:30:01.403 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:30:01.403 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:30:01.408 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:47:39.826 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:47:39.857 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:47:40.166 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:47:40.167 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:47:40.182 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:47:40.449 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:47:41.509 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:47:41.510 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:47:41.627 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:47:42.315 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:47:42.318 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:47:42.318 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:47:42.318 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:47:42.318 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:47:42.320 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:47:42.408 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:47:43.335 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:47:43.413 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:47:43.414 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:47:44.225 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:47:44.226 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:47:44.489 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:47:45.435 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:47:45.435 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:47:45.439 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:47:46.105 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:47:46.105 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:47:46.108 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:47:46.243 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:47:46.244 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:47:46.246 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:49:38.581 [main] > Main >> main - Initialising program...
+[INFO ] 2023-05-02 16:49:38.628 [JavaFX Application Thread] > Main >> start - Initialising Scene...
+[INFO ] 2023-05-02 16:49:39.151 [JavaFX Application Thread] > NavigationViewController >> initialize - Initializing NavigationViewController...
+[INFO ] 2023-05-02 16:49:39.152 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/StartseiteView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:49:39.181 [JavaFX Application Thread] > StartseiteViewController >> initialize - Initializing StartseiteViewController...
+[INFO ] 2023-05-02 16:49:39.514 [JavaFX Application Thread] > Main >> start - Finished loading Scene
+[INFO ] 2023-05-02 16:49:40.752 [JavaFX Application Thread] > NavigationViewController >> benutzerverwaltungButtonTapped - Knopf gedrückt: Benutzerverwaltung
+[INFO ] 2023-05-02 16:49:40.753 [JavaFX Application Thread] > NavigationViewController >> loadPane - Loading 'views/BenutzerdatenListeView.fxml' into AnchorPane
+[INFO ] 2023-05-02 16:49:40.943 [JavaFX Application Thread] > Version >> logVersion - HHH000412: Hibernate ORM core version [WORKING]
+[WARN ] 2023-05-02 16:49:42.037 [JavaFX Application Thread] > pooling >> configure - HHH10001002: Using built-in connection pool (not intended for production use)
+[INFO ] 2023-05-02 16:49:42.040 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001005: Loaded JDBC driver class: net.sourceforge.jtds.jdbc.Driver
+[INFO ] 2023-05-02 16:49:42.040 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001012: Connecting with JDBC URL [jdbc:jtds:sqlserver://localhost:1433/InventV2]
+[INFO ] 2023-05-02 16:49:42.040 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001001: Connection properties: {password=****, user=inventvadmin}
+[INFO ] 2023-05-02 16:49:42.040 [JavaFX Application Thread] > pooling >> buildCreator - HHH10001003: Autocommit mode: false
+[INFO ] 2023-05-02 16:49:42.043 [JavaFX Application Thread] > pooling >> <init> - HHH10001115: Connection pool size: 20 (min=1)
+[INFO ] 2023-05-02 16:49:42.153 [JavaFX Application Thread] > SQL dialect >> logSelectedDialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] 2023-05-02 16:49:43.173 [JavaFX Application Thread] > JtaPlatformInitiator >> initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-05-02 16:49:43.277 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initializing BenutzerdatenListeViewController...
+[INFO ] 2023-05-02 16:49:43.278 [JavaFX Application Thread] > BenutzerdatenListeViewController >> initialize - Initialization complete
+[INFO ] 2023-05-02 16:49:44.377 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:49:44.377 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:49:44.703 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!
+[INFO ] 2023-05-02 16:49:45.900 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search initiated...
+[INFO ] 2023-05-02 16:49:45.901 [JavaFX Application Thread] > NavigationViewController >> getAllEntities - Trying to load all Entries from 'Benutzer' in an ObservableList<BenutzerEntity>
+[INFO ] 2023-05-02 16:49:45.905 [JavaFX Application Thread] > BenutzerdatenListeViewController >> sucheStartenButtonTapped - Search finished!

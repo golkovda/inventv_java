@@ -13,7 +13,11 @@ module com.example.inventv_java {
     requires spring.context;
     requires jakarta.persistence;
     requires spring.beans;
+    requires java.naming;
+    requires jtds;
+    requires org.hibernate.orm.core;
 
+    opens com.golkov.inventv.model.entities to org.hibernate.orm.core, javafx.base;
     opens com.golkov.inventv to javafx.fxml;
     exports com.golkov.inventv;
     exports com.golkov.inventv.controller;

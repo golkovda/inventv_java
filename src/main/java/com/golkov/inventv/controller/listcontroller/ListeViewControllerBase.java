@@ -12,19 +12,9 @@ public class ListeViewControllerBase<T> {
 
     private static final Logger logger = LogManager.getLogger(BenutzerdatenListeViewController.class);
 
-    //region Supplier<T> for creating instances of new T()
-    private final Supplier<? extends T> ctor;
-    ListeViewControllerBase(Supplier<? extends T> ctor){
-        this.ctor = Objects.requireNonNull(ctor);
-    }
-
-    //endregion
-
     //region getters and setters
 
     public T getCurrentEntity() {
-        if(currentEntity == null)
-            currentEntity = ctor.get();
         return currentEntity;
     }
 
@@ -57,7 +47,7 @@ public class ListeViewControllerBase<T> {
 
     //endregion
 
-    private T currentEntity;
-    private ObservableList<T> foundEntities;
+    protected T currentEntity;
+    protected ObservableList<T> foundEntities;
 
 }

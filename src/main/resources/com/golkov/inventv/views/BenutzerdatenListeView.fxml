@@ -44,6 +44,14 @@
                   <RowConstraints maxHeight="1.7976931348623157E308" minHeight="37.0" prefHeight="37.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
+                  <TextField fx:id="txtBenutzerID" maxHeight="1.7976931348623157E308" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="1.0" left="10.0" top="1.0" />
+                     </GridPane.margin>
+                  </TextField>
                   <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="BenutzerID:">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
@@ -64,14 +72,6 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtBenutzerID" maxHeight="1.7976931348623157E308" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="1.0" left="10.0" top="1.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                  </TextField>
                   <TextField fx:id="txtBenutzerKennung" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
@@ -110,7 +110,7 @@
                 <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnSearchBenutzer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sucheStartenButtonTapped" text="Suche Starten" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                  <Button fx:id="btnSearchBenutzer" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#sucheStartenButtonTapped" text="Suche Starten" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>

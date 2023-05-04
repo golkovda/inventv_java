@@ -1,7 +1,11 @@
 package com.golkov.inventv.model.entities;
 
 import jakarta.persistence.*;
-import java.security.Timestamp;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name="Objekt")
@@ -53,11 +57,11 @@ public class ObjektEntity {
         this.modell = modell;
     }
 
-    public Timestamp getKaufdatum() {
+    public LocalDate getKaufdatum() {
         return kaufdatum;
     }
 
-    public void setKaufdatum(Timestamp kaufdatum) {
+    public void setKaufdatum(LocalDate kaufdatum) {
         this.kaufdatum = kaufdatum;
     }
 
@@ -75,21 +79,28 @@ public class ObjektEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="ObjektID", nullable = false)
     private int ID;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="TypID",referencedColumnName = "TypID")
     private TypEntity typ;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="AblageortID",referencedColumnName = "AblageortID")
     private AblageortEntity ablageort;
+
     @Column(name="Inventarnummer", nullable = false)
     private int inventarnummer;
+
     @Column(name="Hersteller", length=100, nullable = false)
     private String hersteller;
+
     @Column(name="Modell", length=100, nullable = false)
     private String modell;
+
     @Column(name="Kaufdatum", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Timestamp kaufdatum;
+    private LocalDate kaufdatum;
+
     @Column(name="Einzelpreis", nullable = false)
     private float einzelpreis;
 

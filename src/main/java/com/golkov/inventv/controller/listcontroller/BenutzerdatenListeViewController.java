@@ -10,9 +10,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,16 +43,62 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
         tcBenutzerKennung.setCellValueFactory(new PropertyValueFactory<>("kennung"));
         tcBenutzerNachname.setCellValueFactory(new PropertyValueFactory<>("nachname"));
         tcBenutzerVorname.setCellValueFactory(new PropertyValueFactory<>("vorname"));
-        lstBenutzerEntities.setItems(foundEntities);
+        tcBenutzerAktion.setCellFactory(column -> new TableCell<BenutzerEntity, Void>(){
+            private final Button editButton = new Button();
+            private final Button deleteButton = new Button();
 
+            {
+                // Setze das Bild für den Edit-Button
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/edit.png")));
+                imageView.setFitHeight(15);
+                imageView.setFitWidth(15);
+                editButton.setGraphic(imageView);
+
+                // Setze das Bild für den Delete-Button
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                imageView.setFitHeight(15);
+                imageView.setFitWidth(15);
+                deleteButton.setGraphic(imageView);
+
+                // Add action listeners to the buttons
+                editButton.setOnAction(event -> {
+                    BenutzerEntity benutzer = getTableView().getItems().get(getIndex());
+                    //TODO: Bearbeiten
+                });
+
+                deleteButton.setOnAction(event -> {
+                    BenutzerEntity benutzer = getTableView().getItems().get(getIndex());
+                    //TODO: Löschsequenz
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    // Clear the cell if the row is empty
+                    setGraphic(null);
+                } else {
+                    // Set the buttons as the graphic of the cell
+                    HBox container = new HBox(10);
+                    container.setAlignment(Pos.CENTER);
+                    container.getChildren().addAll(editButton, deleteButton);
+                    setGraphic(container);
+                }
+            }
+        }); //Logik für die Knopfgenerierung in der Spalte "Aktion" und Delete- sowie Updatelogik
+        lstBenutzerEntities.setItems(foundEntities); //Bindung der TableView an ObservableCollection<BenutzerEntity> foundEntities
+
+        //Algorithmus zum Deaktivieren des "Suchen"-Knopfes bei leeren Filterfeldern
         btnSearchBenutzer.disableProperty().bind(searchButtonDisabled);
-
         searchButtonDisabled.bind(txtBenutzerKennung.textProperty().isEmpty()
                 .and(txtBenutzerNachname.textProperty().isEmpty())
                 .and(txtBenutzerVorname.textProperty().isEmpty())
                 .and(txtBenutzerID.textProperty().isEmpty())
                 );
 
+        //Algorithmus zum Verhindern von nicht-numerischen Eingaben im Feld txtBenutzerID
         txtBenutzerID.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             if (!"0123456789".contains(event.getCharacter())) {
                 event.consume();
@@ -60,6 +110,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
 
     private BooleanProperty searchButtonDisabled = new SimpleBooleanProperty(true);
 
+    //region FXML-Entities
 
     @FXML
     private Button btnNewUser;
@@ -74,7 +125,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
     private TableView<BenutzerEntity> lstBenutzerEntities;
 
     @FXML
-    private TableColumn<BenutzerEntity, ?> tcBenutzerAktion;
+    private TableColumn<BenutzerEntity, Void> tcBenutzerAktion;
 
     @FXML
     private TableColumn<BenutzerEntity, Integer> tcBenutzerID;
@@ -102,6 +153,8 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
 
     @FXML
     private TextField txtBenutzerVorname;
+
+    //endregion
 
     @FXML
     void sucheStartenButtonTapped(ActionEvent event) {

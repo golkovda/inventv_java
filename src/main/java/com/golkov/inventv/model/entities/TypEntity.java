@@ -12,6 +12,11 @@ public class TypEntity {
         return ID;
     }
 
+    public void setID(int id) {
+        this.ID = id;
+    }
+
+
     public String getBezeichnung() {
         return bezeichnung;
     }

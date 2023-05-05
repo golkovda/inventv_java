@@ -2,7 +2,9 @@ package com.golkov.inventv.model.daos;
 
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.model.HibernateUtil;
+import com.golkov.inventv.model.entities.AusleihEntity;
 import com.golkov.inventv.model.entities.BenutzerEntity;
+import com.golkov.inventv.model.entities.ObjektEntity;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -17,16 +19,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BenutzerDAO implements IEntityDAO<BenutzerEntity>{
+public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
     private static final Logger logger = LogManager.getLogger(NavigationViewController.class);
 
     private final SessionFactory sessionFactory;
 
-    public BenutzerDAO(){
+    public BenutzerDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
     }
 
@@ -51,8 +54,22 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity>{
         return null;
     }
 
+    public boolean hatOffeneAusleihen(BenutzerEntity benutzer) {
+        AusleiheDAO a_dao = new AusleiheDAO();
+        ObjektEntity null_objekt = new ObjektEntity();
+        null_objekt.setID(-1);
+        ObservableList<AusleihEntity> ausleihen = a_dao.filterAusleihe(benutzer, null_objekt, LocalDate.of(1900, 1, 1));
+
+        for (AusleihEntity a : ausleihen) {
+            if (!a.isAbgegeben())
+                return true;
+        }
+        return false;
+    }
+
+
     public ObservableList<BenutzerEntity> filterBenutzer(Integer benutzerId, String kennung, String vorname, String nachname) {
-        logger.info("Getting BenutzerEntities from Database and filtering for: ID="+benutzerId.toString()+", kennung="+kennung+", vorname="+vorname+", nachname="+nachname);
+        logger.info("Getting BenutzerEntities from Database and filtering for: ID=" + benutzerId.toString() + ", kennung=" + kennung + ", vorname=" + vorname + ", nachname=" + nachname);
         ObservableList<BenutzerEntity> benutzerList = FXCollections.observableArrayList();
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -81,13 +98,13 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity>{
             benutzerList.addAll(resultList);
             tx.commit();
         } catch (HibernateException e) {
-            logger.error("Exception occured while filtering data: "+ Arrays.toString(e.getStackTrace()));
-            if (tx!=null) tx.rollback();
+            logger.error("Exception occured while filtering data: " + Arrays.toString(e.getStackTrace()));
+            if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
             session.close();
         }
-        logger.info(benutzerList.stream().count()+" Element(s) found");
+        logger.info(benutzerList.stream().count() + " Element(s) found");
         return benutzerList;
     }
 
@@ -104,7 +121,7 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity>{
             benutzerList.addAll(resultList);
             transaction.commit();
         } catch (Exception e) {
-            logger.error("Failed to load Entries from Database: "+ Arrays.toString(e.getStackTrace()));
+            logger.error("Failed to load Entries from Database: " + Arrays.toString(e.getStackTrace()));
             if (transaction != null) {
                 logger.info("Rolling back transaction...");
                 transaction.rollback();

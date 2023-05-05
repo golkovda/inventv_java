@@ -2,10 +2,8 @@ package com.golkov.inventv.model.daos;
 
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.model.HibernateUtil;
-import com.golkov.inventv.model.entities.AblageortEntity;
+import com.golkov.inventv.model.entities.*;
 import com.golkov.inventv.model.entities.ObjektEntity;
-import com.golkov.inventv.model.entities.ObjektEntity;
-import com.golkov.inventv.model.entities.TypEntity;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -55,6 +53,19 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
     public ObjektEntity getEntityById(int id) {
         //TODO
         return null;
+    }
+
+    public boolean istAusgeliehen(ObjektEntity objekt){
+        AusleiheDAO a_dao = new AusleiheDAO();
+        BenutzerEntity null_benutzer = new BenutzerEntity();
+        null_benutzer.setID(-1);
+        ObservableList<AusleihEntity> ausleihen = a_dao.filterAusleihe(null_benutzer, objekt, LocalDate.of(1900,1,1));
+
+        for (AusleihEntity a : ausleihen) {
+            if(!a.isAbgegeben())
+                return true;
+        }
+        return false;
     }
 
     public ObservableList<ObjektEntity> filterObjekt(Integer objektId, Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {

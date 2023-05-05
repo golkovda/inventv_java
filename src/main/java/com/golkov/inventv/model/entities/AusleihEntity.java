@@ -2,6 +2,7 @@ package com.golkov.inventv.model.entities;
 
 import jakarta.persistence.*;
 import java.security.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Ausleihe")
@@ -28,11 +29,11 @@ public class AusleihEntity {
         this.objekt = objekt;
     }
 
-    public Timestamp getAusleihdatum() {
+    public LocalDate getAusleihdatum() {
         return ausleihdatum;
     }
 
-    public void setAusleihdatum(Timestamp ausleihdatum) {
+    public void setAusleihdatum(LocalDate ausleihdatum) {
         this.ausleihdatum = ausleihdatum;
     }
 
@@ -50,15 +51,19 @@ public class AusleihEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="AusleihID", nullable = false)
     private int ID;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="BenutzerID",referencedColumnName = "BenutzerID")
     private BenutzerEntity benutzer;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="ObjektID",referencedColumnName = "ObjektID")
     private ObjektEntity objekt;
+
     @Column(name="Ausleihdatum", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Timestamp ausleihdatum;
+    private LocalDate ausleihdatum;
+
     @Column(name="Abgegeben", nullable = false)
     private boolean abgegeben;
 

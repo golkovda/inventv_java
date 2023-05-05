@@ -1,7 +1,9 @@
 package com.golkov.inventv.controller.listcontroller;
 
+import com.golkov.inventv.model.daos.AblageortDAO;
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.daos.ObjektDAO;
+import com.golkov.inventv.model.daos.TypDAO;
 import com.golkov.inventv.model.entities.AblageortEntity;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.ObjektEntity;
@@ -9,6 +11,7 @@ import com.golkov.inventv.model.entities.TypEntity;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.util.StringConverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,9 +45,45 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logger.info("Initializing ObjektdatenListeViewController...");
+
+        //region Definition und Verhalten der Controls
         tcObjektID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         tcObjektInventarnummer.setCellValueFactory(new PropertyValueFactory<>("inventarnummer"));
         tcObjektTyp.setCellValueFactory(new PropertyValueFactory<>("typ"));
+
+        //Algorithmus zum Umwandeln eines TypEntity-Ergebnisses in die Anzeige der Bezeichnung des Typs
+        tcObjektTyp.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(TypEntity typEntity, boolean empty) {
+                super.updateItem(typEntity, empty);
+                if (typEntity == null || empty) {
+                    setText(null);
+                } else {
+                    setText(typEntity.getBezeichnung());
+                }
+            }
+        });
+
+        //Logik zum Umwandeln von true/false in ja/nein
+        tcObjektAusgeliehen.setCellFactory(column -> new TableCell<ObjektEntity, Boolean>() {
+            @Override
+            protected void updateItem(Boolean ausgeliehen, boolean empty) {
+                super.updateItem(ausgeliehen, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(ausgeliehen ? "Ja" : "Nein");
+                }
+            }
+        });
+
+        //Logik zur Bestimmung von Ausleihen des Objekts
+        tcObjektAusgeliehen.setCellValueFactory(cellData -> {
+            ObjektEntity objekt = cellData.getValue();
+            boolean ausgeliehen = o_dao.istAusgeliehen(objekt);
+            return new SimpleBooleanProperty(ausgeliehen);
+        });
+
         tcObjektHersteller.setCellValueFactory(new PropertyValueFactory<>("hersteller"));
         tcObjektModell.setCellValueFactory(new PropertyValueFactory<>("modell"));
         tcObjektAktion.setCellFactory(column -> new TableCell<ObjektEntity, Void>(){
@@ -91,34 +131,82 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
                 }
             }
         }); //Logik für die Knopfgenerierung in der Spalte "Aktion" und Delete- sowie Updatelogik
+
+        //TypEntities in Combobox laden
+        TypDAO t_dao = new TypDAO();
+        ObservableList<TypEntity> typList = t_dao.getAllEntities();
+        cbTyp.setItems(typList);
+        //Logik für die ComboBox-Anzeige des Typs (nur TypEntity.Bezeichnung soll sichtbar sein)
+        cbTyp.setConverter(new StringConverter<TypEntity>() {
+            @Override
+            public String toString(TypEntity typ) {
+                // Wandelt das TypEntity in die Bezeichnung um
+                return typ.getBezeichnung();
+            }
+
+            @Override
+            public TypEntity fromString(String bezeichnung) {
+                // Wandelt die ausgewählte Bezeichnung wieder in das zugehörige TypEntity um
+                for (TypEntity typ : typList) {
+                    if (typ.getBezeichnung().equals(bezeichnung)) {
+                        return typ;
+                    }
+                }
+                return null;
+            }
+        });
+
+        //AblageortEntities in Combobox laden
+        AblageortDAO ao_dao = new AblageortDAO();
+        ObservableList<AblageortEntity> ablageortList = ao_dao.getAllEntities();
+        cbAblageort.setItems(ablageortList);
+        //Logik für die ComboBox-Anzeige des Ablageorts (nur AblageortEntity.Bezeichnung soll sichtbar sein)
+        cbAblageort.setConverter(new StringConverter<AblageortEntity>() {
+            @Override
+            public String toString(AblageortEntity ablageort) {
+                // Wandelt das TypEntity in die Bezeichnung um
+                return ablageort.getBezeichnung();
+            }
+
+            @Override
+            public AblageortEntity fromString(String bezeichnung) {
+                // Wandelt die ausgewählte Bezeichnung wieder in das zugehörige TypEntity um
+                for (AblageortEntity ablageort : ablageortList) {
+                    if (ablageort.getBezeichnung().equals(bezeichnung)) {
+                        return ablageort;
+                    }
+                }
+                return null;
+            }
+        });
+
+        //endregion
+
         lstObjektEntities.setItems(foundEntities); //Bindung der TableView an ObservableCollection<BenutzerEntity> foundEntities
 
         //Algorithmus zum Deaktivieren des "Suchen"-Knopfes bei leeren Filterfeldern
-        //TODO: reparieren
         btnSearchObjekte.disableProperty().bind(searchButtonDisabled);
         searchButtonDisabled.bind(txtObjektID.textProperty().isEmpty()
                 .and(txtInventarnummer.textProperty().isEmpty())
                 .and(txtHersteller.textProperty().isEmpty())
                 .and(txtModell.textProperty().isEmpty())
-                .and(cbKaufdatum.valueProperty().isNotNull())
+                .and(cbKaufdatum.valueProperty().isNull())
                 .and(txtEinzelpreis.textProperty().isEmpty())
-                .and(cbTyp.valueProperty().isNotNull())
-                .and(cbTyp.valueProperty().isNotNull())
+                .and(cbTyp.valueProperty().isNull())
+                .and(cbAblageort.valueProperty().isNull())
         );
 
-        //Algorithmus zum Verhindern von nicht-numerischen Eingaben im Feld txtBenutzerID
+        //Algorithmus zum Verhindern von nicht-numerischen Eingaben in diversen numerischen Feldern
         txtObjektID.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             if (!"0123456789".contains(event.getCharacter())) {
                 event.consume();
             }
         });
-
         txtInventarnummer.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             if (!"0123456789".contains(event.getCharacter())) {
                 event.consume();
             }
         });
-
         txtEinzelpreis.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             if (!".0123456789".contains(event.getCharacter())) {
                 event.consume();
@@ -160,7 +248,7 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
     private TableColumn<ObjektEntity, String> tcObjektModell;
 
     @FXML
-    private TableColumn<ObjektEntity, String> tcObjektTyp;
+    private TableColumn<ObjektEntity, TypEntity> tcObjektTyp;
 
     @FXML
     private ComboBox<TypEntity> cbTyp;

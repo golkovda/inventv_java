@@ -112,7 +112,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="btnSearchObjekte" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sucheStartenButtonTapped" text="Suche Starten" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                  <Button fx:id="btnSearchObjekte" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#sucheStartenButtonTapped" text="Suche Starten" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>

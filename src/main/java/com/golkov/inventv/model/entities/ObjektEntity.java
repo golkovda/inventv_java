@@ -17,6 +17,10 @@ public class ObjektEntity {
         return ID;
     }
 
+    public void setID(int i) {
+        this.ID = i;
+    }
+
     public TypEntity getTyp() {
         return typ;
     }
@@ -103,5 +107,6 @@ public class ObjektEntity {
 
     @Column(name="Einzelpreis", nullable = false)
     private float einzelpreis;
+
 
 }

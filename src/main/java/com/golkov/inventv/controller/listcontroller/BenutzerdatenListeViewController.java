@@ -2,6 +2,7 @@ package com.golkov.inventv.controller.listcontroller;
 
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.entities.BenutzerEntity;
+import com.golkov.inventv.model.entities.ObjektEntity;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
@@ -89,6 +90,26 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
             }
         }); //Logik für die Knopfgenerierung in der Spalte "Aktion" und Delete- sowie Updatelogik
         lstBenutzerEntities.setItems(foundEntities); //Bindung der TableView an ObservableCollection<BenutzerEntity> foundEntities
+
+        //Logik zum Umwandeln von true/false in ja/nein
+        tcBenutzerOffeneAusleihen.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(Boolean ausgeliehen, boolean empty) {
+                super.updateItem(ausgeliehen, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(ausgeliehen ? "Ja" : "Nein");
+                }
+            }
+        });
+
+        //Logik zur Bestimmung von Ausleihen des Objekts
+        tcBenutzerOffeneAusleihen.setCellValueFactory(cellData -> {
+            BenutzerEntity benutzer = cellData.getValue();
+            boolean ausgeliehen = b_dao.hatOffeneAusleihen(benutzer);
+            return new SimpleBooleanProperty(ausgeliehen);
+        });
 
         //Algorithmus zum Deaktivieren des "Suchen"-Knopfes bei leeren Filterfeldern
         btnSearchBenutzer.disableProperty().bind(searchButtonDisabled);

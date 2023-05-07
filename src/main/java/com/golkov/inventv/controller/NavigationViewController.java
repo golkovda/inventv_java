@@ -25,6 +25,9 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.golkov.inventv.InventVPreferences.getShortServerUrl;
+
+
 public class NavigationViewController implements Initializable {
 
     private static final Logger logger = LogManager.getLogger(NavigationViewController.class);
@@ -33,6 +36,7 @@ public class NavigationViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logger.info("Initializing NavigationViewController...");
         lblBriefText.setText("Startseite");
+        lblUsername.setText(getShortServerUrl());
         loadPane(vpAnchorPane, "views/StartseiteView.fxml");
     }
 

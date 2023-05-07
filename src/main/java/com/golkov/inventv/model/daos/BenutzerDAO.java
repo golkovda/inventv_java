@@ -54,6 +54,10 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
         return null;
     }
 
+    public BenutzerEntity getEntityByKennung(String kennung){
+       return filterBenutzer(0, kennung, "","").size() > 0 ? filterBenutzer(0, kennung, "","").get(0) : null;
+    }
+
     public boolean hatOffeneAusleihen(BenutzerEntity benutzer) {
         AusleiheDAO a_dao = new AusleiheDAO();
         ObjektEntity null_objekt = new ObjektEntity();

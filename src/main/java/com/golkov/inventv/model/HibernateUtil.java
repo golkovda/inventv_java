@@ -6,6 +6,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import static com.golkov.inventv.InventVPreferences.*;
+
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
@@ -13,6 +15,10 @@ public class HibernateUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();
+
+                configuration.setProperty("hibernate.connection.url", getServerUrl());
+                configuration.setProperty("hibernate.connection.username", getServerUsername());
+                configuration.setProperty("hibernate.connection.password", getServerPassword());
 
                 configuration.addAnnotatedClass(BenutzerEntity.class);
                 configuration.addAnnotatedClass(ObjektEntity.class);

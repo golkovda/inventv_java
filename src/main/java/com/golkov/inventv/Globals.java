@@ -4,34 +4,17 @@ public class Globals {
 
     //region Getters and setters
 
-    public static String getUrl() {
-        return url;
+    public static String getCurrent_user() {
+        return current_user;
     }
 
-    public void setUrl(String url) {
-        Globals.url = url;
+    public static void setCurrent_user(String current_user) {
+        Globals.current_user = current_user;
     }
 
-    public static String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        Globals.username = username;
-    }
-
-    public static String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        Globals.password = password;
-    }
 
     //endregion
 
-    public static String url = "jdbc:jtds:sqlserver://localhost:1433/InventV2";
-    public static String username = "inventvadmin";
-    public static String password = "ynbayw";
+    public static String current_user;
 
 }

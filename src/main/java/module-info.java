@@ -17,6 +17,7 @@ module com.example.inventv_java {
     requires jtds;
     requires org.hibernate.orm.core;
     requires javafx.base;
+    requires java.prefs;
 
 
     opens com.golkov.inventv.model.entities to org.hibernate.orm.core, javafx.base;

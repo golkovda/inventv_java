@@ -52,6 +52,12 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
         return null;
     }
 
+    public ObservableList<AusleihEntity> getAusleihenByBenutzer(BenutzerEntity benutzer){
+        ObjektEntity null_entity = new ObjektEntity();
+        null_entity.setID(-1);
+        return filterAusleihe(benutzer, null_entity, LocalDate.of(1900,1,1));
+    }
+
     public ObservableList<AusleihEntity> filterAusleihe(BenutzerEntity benutzer, ObjektEntity objekt, LocalDate ausleihdatum) {
         logger.info("Getting AusleiheEntities from Database and filtering for: ausleihdatum="+ausleihdatum.toString()+", benutzer="+benutzer.getKennung()+", objekt="+objekt.getInventarnummer());
         ObservableList<AusleihEntity> ausleihList = FXCollections.observableArrayList();

@@ -1,7 +1,9 @@
 package com.golkov.inventv.controller;
 
 import com.golkov.inventv.Globals;
+import com.golkov.inventv.InventVPreferences;
 import com.golkov.inventv.Main;
+import com.golkov.inventv.ViewNavigation;
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import javafx.collections.ObservableList;
@@ -26,18 +28,27 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.golkov.inventv.InventVPreferences.getShortServerUrl;
+import static com.golkov.inventv.InventVPreferences.getServerUsername;
 
 
 public class NavigationViewController implements Initializable {
 
     private static final Logger logger = LogManager.getLogger(NavigationViewController.class);
 
+    private static NavigationViewController instance;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logger.info("Initializing NavigationViewController...");
         lblBriefText.setText("Startseite");
-        lblUsername.setText(getShortServerUrl());
-        loadPane(vpAnchorPane, "views/StartseiteView.fxml");
+        lblConnectionAdress.setText(getShortServerUrl());
+        lblUsername.setText(InventVPreferences.getUsername());
+        Globals.loadFreshPane(vpAnchorPane, "views/StartseiteView.fxml", 0);
+        instance = this;
+    }
+
+    public static NavigationViewController getInstance() {
+        return instance;
     }
 
     @FXML
@@ -70,17 +81,29 @@ public class NavigationViewController implements Initializable {
     @FXML
     private AnchorPane vpAnchorPane;
 
+    public AnchorPane getAnchorPane() {
+        return vpAnchorPane;
+    }
+
     @FXML
     void ausleihenverwaltungButtonTapped(ActionEvent event) throws IOException {
         lblBriefText.setText("Ausleihenverwaltung");
-        loadPane(vpAnchorPane, "views/AusleihenListeView.fxml");
+        if (ViewNavigation.getSize(3) == 0)
+            Globals.loadFreshPane(vpAnchorPane, "views/AusleihenListeView.fxml", 3);
+        else
+            Globals.loadExistingPane(vpAnchorPane, 3);
     }
+
+
 
     @FXML
     void benutzerverwaltungButtonTapped(ActionEvent event) throws IOException {
         logger.info("Knopf gedrückt: Benutzerverwaltung");
         lblBriefText.setText("Benutzerverwaltung");
-        loadPane(vpAnchorPane, "views/BenutzerdatenListeView.fxml");
+        if (ViewNavigation.getSize(1) == 0)
+            Globals.loadFreshPane(vpAnchorPane, "views/BenutzerdatenListeView.fxml", 1);
+        else
+            Globals.loadExistingPane(vpAnchorPane, 1);
     }
 
     @FXML
@@ -94,35 +117,19 @@ public class NavigationViewController implements Initializable {
     void objektverwaltungButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Objektverwaltung");
         lblBriefText.setText("Objektverwaltung");
-        loadPane(vpAnchorPane, "views/ObjektdatenListeView.fxml");
+        if (ViewNavigation.getSize(2) == 0)
+            Globals.loadFreshPane(vpAnchorPane, "views/ObjektdatenListeView.fxml", 2);
+        else
+            Globals.loadExistingPane(vpAnchorPane, 2);
     }
 
     @FXML
     void startseiteButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Startseite");
         lblBriefText.setText("Startseite");
-        loadPane(vpAnchorPane, "views/StartseiteView.fxml");
-    }
-
-    private void loadPane(AnchorPane ap, String resource){
-        logger.info("Loading '"+resource+"' into AnchorPane");
-        try {
-            Node node;
-
-            logger.debug("Retrieving resource: '"+resource+"'");
-            node = (Node) FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(resource)));
-
-            logger.debug("Setting anchors...");
-            ap.setLeftAnchor(node, 0.0);
-            ap.setRightAnchor(node, 0.0);
-            ap.setTopAnchor(node, 0.0);
-            ap.setBottomAnchor(node, 0.0);
-
-            ap.getChildren().setAll(node);
-        }catch(Exception e){
-            logger.error("Failed to load '"+resource+"' into AnchorPane");
-            logger.error(e.getMessage());
-            e.printStackTrace();
-        }
+        if (ViewNavigation.getSize(0) == 0)
+            Globals.loadFreshPane(vpAnchorPane, "views/StartseiteView.fxml", 0);
+        else
+            Globals.loadExistingPane(vpAnchorPane, 0);
     }
 }

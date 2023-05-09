@@ -1,5 +1,6 @@
 package com.golkov.inventv.controller;
 
+import com.golkov.inventv.InventVPreferences;
 import com.golkov.inventv.Main;
 import com.golkov.inventv.model.HibernateUtil;
 import com.golkov.inventv.model.daos.BenutzerDAO;
@@ -55,6 +56,7 @@ public class AdministratorValidierungViewController implements Initializable {
             if(cu.isAdministrator()) {
                 if(callback != null) {
                     try {
+                        InventVPreferences.saveUserCredentials(txtBenutzerKennung.getText(), txtBenutzerPasswort.getText());
                         callback.onAdministratorValidated();
                     } catch (IOException e) {
                         throw new RuntimeException(e);

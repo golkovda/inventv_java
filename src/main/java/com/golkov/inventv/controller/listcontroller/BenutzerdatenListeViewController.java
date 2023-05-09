@@ -1,5 +1,10 @@
 package com.golkov.inventv.controller.listcontroller;
 
+import com.golkov.inventv.Globals;
+import com.golkov.inventv.Main;
+import com.golkov.inventv.ViewNavigation;
+import com.golkov.inventv.controller.NavigationViewController;
+import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.ObjektEntity;
@@ -7,21 +12,26 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
@@ -64,7 +74,25 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
                 // Add action listeners to the buttons
                 editButton.setOnAction(event -> {
                     BenutzerEntity benutzer = getTableView().getItems().get(getIndex());
-                    //TODO: Bearbeiten
+                    //Logik zum wechseln der Ansichten von Liste zu Detailview mithilfe der ViewNavigation-Klasse
+                    try {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/BenutzerdatenDetailView.fxml"));
+                        BenutzerdatenDetailViewController controller = new BenutzerdatenDetailViewController(benutzer);
+                        loader.setController(controller);
+                        Node node = loader.load();
+                        ViewNavigation.push(1, node);
+
+                        NavigationViewController navigationController = NavigationViewController.getInstance();
+                        AnchorPane ap = navigationController.getAnchorPane();
+                        ap.setLeftAnchor(node, 0.0);
+                        ap.setRightAnchor(node, 0.0);
+                        ap.setTopAnchor(node, 0.0);
+                        ap.setBottomAnchor(node, 0.0);
+
+                        ap.getChildren().setAll(node);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
 
                 deleteButton.setOnAction(event -> {
@@ -126,6 +154,10 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
             }
         });
 
+        foundEntities.addListener((ListChangeListener.Change<? extends BenutzerEntity> c) -> {
+            lblFoundBenutzerEntities.setText(String.valueOf(foundEntities.size()));
+        } );
+
         logger.info("Initialization complete");
     }
 
@@ -184,7 +216,6 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
         if(!txtBenutzerID.getText().equals(""))
             searchID = Integer.parseInt(txtBenutzerID.getText());
         foundEntities.setAll(b_dao.filterBenutzer(searchID, txtBenutzerKennung.getText(), txtBenutzerVorname.getText(), txtBenutzerNachname.getText()));
-        lblFoundBenutzerEntities.setText(String.valueOf(foundEntities.size()));
         logger.info("Search finished!");
     }
 

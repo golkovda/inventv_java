@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 public class ListeViewControllerBase<T> {
 
-    private static final Logger logger = LogManager.getLogger(BenutzerdatenListeViewController.class);
+    private static final Logger logger = LogManager.getLogger(ListeViewControllerBase.class);
 
     //region getters and setters
 

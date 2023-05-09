@@ -26,10 +26,11 @@ import static com.golkov.inventv.InventVPreferences.*;
 public class ServerConnectionViewController implements Initializable {
 
     private Main.ServerConnectedCallback callback;
+    public boolean isConnected = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(Objects.equals(isDefaultServerSet(), "true")){
+        if (Objects.equals(isDefaultServerSet(), "true")) {
             btnServerConnect.setDisable(true);
             checkSetStandardConnection.setDisable(true);
             checkSetStandardConnection.setSelected(true);
@@ -74,11 +75,11 @@ public class ServerConnectionViewController implements Initializable {
     private void tryConnection() {
         lblConnectionFailed.setVisible(false);
         piDatabaseConnection.setVisible(true);
-        saveServerCredentials(txtIP.getText(),"jdbc:jtds:sqlserver://" + txtIP.getText() + "/InventV2", txtServerBenutzername.getText(), txtServerPasswort.getText(), checkSetStandardConnection.selectedProperty().getValue());
+        saveServerCredentials(txtIP.getText(), "jdbc:jtds:sqlserver://" + txtIP.getText() + "/InventV2", txtServerBenutzername.getText(), txtServerPasswort.getText(), checkSetStandardConnection.selectedProperty().getValue());
 
         CompletableFuture.supplyAsync(HibernateUtil::getSessionFactory)
                 .thenAcceptAsync(sessionFactory -> {
-                    if(sessionFactory == null) {
+                    if (sessionFactory == null) {
                         lblConnectionFailed.setVisible(true);
                         piDatabaseConnection.setVisible(false);
                         btnServerConnect.setDisable(false);
@@ -87,8 +88,8 @@ public class ServerConnectionViewController implements Initializable {
                         txtServerBenutzername.setDisable(false);
                         txtServerPasswort.setDisable(false);
                         checkSetStandardConnection.setSelected(false);
-                    }else{
-                        if(callback != null) {
+                    } else {
+                        if (callback != null) {
                             try {
                                 callback.onServerConnected();
                             } catch (IOException e) {
@@ -106,7 +107,7 @@ public class ServerConnectionViewController implements Initializable {
 
     public void setOnServerConnectedCallback(Main.ServerConnectedCallback callback) {
         this.callback = callback;
-        System.out.println("Callback initialized: "+ (callback != null));
+        System.out.println("Callback initialized: " + (callback != null));
     }
 
 

@@ -32,6 +32,9 @@ public class Main extends Application {
     }
 
     private static void initializeWithServerInfo(Stage stage) {
+
+
+
         try {
             logger.info("Initialising Scene...");
             logger.debug("Loading ServerConnectionView.fxml");

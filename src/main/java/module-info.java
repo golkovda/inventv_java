@@ -27,4 +27,5 @@ module com.example.inventv_java {
     opens com.golkov.inventv.controller to javafx.fxml;
     exports com.golkov.inventv.controller.listcontroller;
     opens com.golkov.inventv.controller.listcontroller to javafx.fxml;
+    opens com.golkov.inventv.controller.detailcontroller to javafx.fxml;
 }

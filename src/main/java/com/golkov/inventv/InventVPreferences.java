@@ -15,6 +15,22 @@ public class InventVPreferences {
         prefs.put("isdefault", String.valueOf(isdefault));
     }
 
+    public static void saveUserCredentials(String username, String password){
+        Preferences prefs = Preferences.userRoot().node(PREFS_NODE);
+        prefs.put("username", username);
+        prefs.put("password", password);
+    }
+
+    public static String getUsername() {
+        Preferences prefs = Preferences.userRoot().node(PREFS_NODE);
+        return prefs.get("username", "");
+    }
+
+    public static String getUserPassword() {
+        Preferences prefs = Preferences.userRoot().node(PREFS_NODE);
+        return prefs.get("password", "");
+    }
+
     public static String getShortServerUrl() {
         Preferences prefs = Preferences.userRoot().node(PREFS_NODE);
         return prefs.get("shortserverurl", "");

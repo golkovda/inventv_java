@@ -54,6 +54,8 @@ public class BenutzerEntity implements Serializable {
     }
 
     public String getTelefon() {
+        if(telefon == null)
+            return "";
         return telefon;
     }
 
@@ -62,6 +64,8 @@ public class BenutzerEntity implements Serializable {
     }
 
     public String getEmail() {
+        if(email == null)
+            return "";
         return email;
     }
 

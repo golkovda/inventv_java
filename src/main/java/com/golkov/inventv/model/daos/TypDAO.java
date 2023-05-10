@@ -30,26 +30,7 @@ public class TypDAO implements IEntityDAO<TypEntity>{
         sessionFactory = HibernateUtil.getSessionFactory();
     }
 
-    @Override
-    public void addEntity(TypEntity entity) {
-        //TODO
-    }
 
-    @Override
-    public void updateEntity(TypEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void deleteEntity(int id) {
-        //TODO
-    }
-
-    @Override
-    public TypEntity getEntityById(int id) {
-        //TODO
-        return null;
-    }
 
     public ObservableList<TypEntity> filterTyp(Integer typId, String bezeichnung) {
         logger.info("Getting TypEntities from Database and filtering for: ID="+typId.toString()+", bezeichnung="+bezeichnung);
@@ -109,5 +90,22 @@ public class TypDAO implements IEntityDAO<TypEntity>{
         }
         logger.debug("Successfully loaded Typ-type Objects from Database");
         return typList;
+    }
+
+    @Override
+    public int updateEntity(TypEntity oldEntity, TypEntity newEntity) {
+        return 0;
+    }
+
+    @Override
+    public int removeEntity(TypEntity entityToRemove) {
+        return 0;
+
+    }
+
+    @Override
+    public int insertEntity(TypEntity entityToInsert) {
+        return 0;
+
     }
 }

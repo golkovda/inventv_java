@@ -26,29 +26,8 @@ public class AblageortDAO implements IEntityDAO<AblageortEntity>{
 
     private final SessionFactory sessionFactory;
 
-    public AblageortDAO(){
+    public AblageortDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
-    }
-
-    @Override
-    public void addEntity(AblageortEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void updateEntity(AblageortEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void deleteEntity(int id) {
-        //TODO
-    }
-
-    @Override
-    public AblageortEntity getEntityById(int id) {
-        //TODO
-        return null;
     }
 
     public ObservableList<AblageortEntity> filterAblageort(Integer ablageortId, String bezeichnung) {
@@ -109,5 +88,23 @@ public class AblageortDAO implements IEntityDAO<AblageortEntity>{
         }
         logger.debug("Successfully loaded Ablageort-type Objects from Database");
         return ablageortList;
+    }
+
+    @Override
+    public int updateEntity(AblageortEntity oldEntity, AblageortEntity newEntity) {
+        return 0;
+
+    }
+
+    @Override
+    public int removeEntity(AblageortEntity entityToRemove) {
+        return 0;
+
+    }
+
+    @Override
+    public int insertEntity(AblageortEntity entityToInsert) {
+        return 0;
+
     }
 }

@@ -4,6 +4,7 @@ import com.golkov.inventv.ViewNavigation;
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.controller.listcontroller.BenutzerdatenListeViewController;
 import com.golkov.inventv.model.daos.AusleiheDAO;
+import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.entities.AusleihEntity;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.ObjektEntity;
@@ -34,20 +35,16 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
     }
 
     public void initialize() {
+        btnSaveBenutzer.disableProperty().bind(saveButtonDisabled);
+
         if (UnchangedEntity != null) {
+
             txtBenutzerID.setText(Integer.toString(UnchangedEntity.getID()));
             txtBenutzerKennung.setText(UnchangedEntity.getKennung());
             txtBenutzerVorname.setText(UnchangedEntity.getVorname());
             txtBenutzerNachname.setText(UnchangedEntity.getNachname());
-            if (Objects.equals(UnchangedEntity.getTelefon(), ""))
-                txtBenutzerTelefon.setText("Nicht angegeben");
-            else
-                txtBenutzerTelefon.setText(UnchangedEntity.getTelefon());
-
-            if (Objects.equals(UnchangedEntity.getEmail(), ""))
-                txtBenutzerEmail.setText("Nicht angegeben");
-            else
-                txtBenutzerEmail.setText(UnchangedEntity.getEmail());
+            txtBenutzerTelefon.setText(UnchangedEntity.getTelefon());
+            txtBenutzerEmail.setText(UnchangedEntity.getEmail());
 
             checkAdministrator.setSelected(UnchangedEntity.isAdministrator());
             checkAdministrator.setDisable(true);
@@ -126,7 +123,7 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
             });
 
             //Algorithmus zum Deaktivieren des "Speichern"-Knopfes wenn UnchangedEntity = CurrentEntity
-            BooleanBinding saveButtonDisabled = new BooleanBinding() {
+            BooleanBinding saveButtonDisabled2 = new BooleanBinding() {
                 {
                     super.bind(
                             txtBenutzerKennung.textProperty(),
@@ -146,21 +143,12 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
                             && txtBenutzerEmail.getText().equals(UnchangedEntity.getEmail());
                 }
             };
-            btnSaveBenutzer.disableProperty().bind(saveButtonDisabled);
-           /* saveButtonDisabled.bind(txtBenutzerKennung.textProperty().isEqualTo(UnchangedEntity.getKennung())
-                    .and(txtBenutzerNachname.textProperty().isEqualTo(UnchangedEntity.getVorname()))
-                    .and(txtBenutzerVorname.textProperty().isEqualTo(UnchangedEntity.getNachname()))
-                    .and(txtBenutzerTelefon.textProperty().isEqualTo(UnchangedEntity.getTelefon()))
-                    .and(txtBenutzerEmail.textProperty().isEqualTo(UnchangedEntity.getEmail()))
-            );*/
-
+            saveButtonDisabled.bind(saveButtonDisabled2);
 
         } else {
-            //Algorithmus zum Deaktivieren des "Speichern"-Knopfes wenn Pflichtfelder nicht ausgefüllt sind
-            btnSaveBenutzer.disableProperty().bind(saveButtonDisabled);
             saveButtonDisabled.bind(txtBenutzerKennung.textProperty().isEmpty()
-                    .and(txtBenutzerNachname.textProperty().isEmpty())
-                    .and(txtBenutzerVorname.textProperty().isEmpty())
+                    .or(txtBenutzerNachname.textProperty().isEmpty())
+                    .or(txtBenutzerVorname.textProperty().isEmpty())
             );
         }
     }
@@ -217,7 +205,49 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
 
     @FXML
     void speichernButtonTapped(ActionEvent event) {
+        //Wenn neuer Benutzer erstellt wird
+        BenutzerEntity updatedUser = new BenutzerEntity();
+        if(UnchangedEntity != null)
+            updatedUser = UnchangedEntity;
+        updatedUser.setKennung(txtBenutzerKennung.getText());
+        updatedUser.setVorname(txtBenutzerVorname.getText());
+        updatedUser.setNachname(txtBenutzerNachname.getText());
+        updatedUser.setTelefon(txtBenutzerTelefon.getText());
+        updatedUser.setEmail(txtBenutzerEmail.getText());
+        updatedUser.setAdministrator(checkAdministrator.isSelected());
 
+        BenutzerDAO b_dao = new BenutzerDAO();
+        int error = 2;
+
+        if (UnchangedEntity == null) {
+            error = b_dao.insertEntity(updatedUser);
+        } else { //Wenn vorhandener Benutzer aktualisiert wird
+            error = b_dao.updateEntity(UnchangedEntity, updatedUser);
+        }
+
+        if (error == 1) { //TODO: Alerts in separate Klasse auslagern
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Fehler beim Speichern");
+            alert.setHeaderText("Kennung existiert bereits");
+            alert.setContentText("Bei der Verarbeitung der Benutzerdaten ist ein Fehler aufgetreten: Die Benutzerkennung '" + updatedUser.getKennung() + "' existiert bereits in der Datenbank. Bitte geben Sie eine gültige Benutzerkennung ein.");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    alert.close();
+                }
+            });
+        } else if (error == 2) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler beim Speichern");
+            alert.setHeaderText("Datenbankfehler");
+            alert.setContentText("Bei der Verarbeitung der Benutzerdaten ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    alert.close();
+                }
+            });
+        } else {
+            zurueckButtonTapped(new ActionEvent());
+        }
     }
 
     @FXML

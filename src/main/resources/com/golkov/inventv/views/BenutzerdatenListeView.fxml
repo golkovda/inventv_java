@@ -6,8 +6,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -146,14 +149,6 @@
           <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnNewUser" mnemonicParsing="false" style="-fx-graphic: url(com.golkov.inventv.images/plus.png);" text="Neuen Benutzer erstellen...">
-               <font>
-                  <Font name="Segoe UI Bold" size="16.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </Button>
             <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="171.0" text="gefundene Einträge:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                <font>
                   <Font name="Segoe UI Italic" size="18.0" />
@@ -167,6 +162,27 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
+            <Button fx:id="btnNewBenutzer" onAction="#newBenutzerButtonTapped">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="5">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../com.golkov.inventv.images/plus.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Neuen Benutzer hinzufügen">
+                           <font>
+                              <Font name="Segoe UI" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" />
+               </GridPane.margin>
+            </Button>
          </children>
          <GridPane.margin>
             <Insets bottom="5.0" />

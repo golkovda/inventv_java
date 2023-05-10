@@ -31,34 +31,36 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
         sessionFactory = HibernateUtil.getSessionFactory();
     }
 
-    @Override
-    public void addEntity(AusleihEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void updateEntity(AusleihEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void deleteEntity(int id) {
-        //TODO
-    }
-
-    @Override
-    public AusleihEntity getEntityById(int id) {
-        //TODO
-        return null;
-    }
-
     public ObservableList<AusleihEntity> getAusleihenByBenutzer(BenutzerEntity benutzer){
         ObjektEntity null_entity = new ObjektEntity();
         null_entity.setID(-1);
         return filterAusleihe(benutzer, null_entity, LocalDate.of(1900,1,1));
     }
 
-    public ObservableList<AusleihEntity> filterAusleihe(BenutzerEntity benutzer, ObjektEntity objekt, LocalDate ausleihdatum) {
+    public AusleihEntity getAusleiheByObjekt(ObjektEntity objekt, int abgegeben){
+        BenutzerEntity null_entity = new BenutzerEntity();
+        null_entity.setID(-1);
+        ObservableList<AusleihEntity> foundEntites = filterAusleihe(null_entity, objekt, LocalDate.of(1900,1,1), abgegeben);
+        if(foundEntites.size() == 1)
+            return foundEntites.get(0);
+        return null;
+    }
+
+    public ObservableList<AusleihEntity> getAusleihenByObjekt(ObjektEntity objekt){
+        BenutzerEntity null_entity = new BenutzerEntity();
+        null_entity.setID(-1);
+        return filterAusleihe(null_entity, objekt, LocalDate.of(1900,1,1));
+    }
+
+    public boolean hatOffeneAusleihen(BenutzerEntity benutzer){
+        ObjektEntity null_entity = new ObjektEntity();
+        null_entity.setID(-1);
+        ObservableList<AusleihEntity> ausleihList =  filterAusleihe(benutzer, null_entity, LocalDate.of(1900,1,1), 0); //Suche alle Ausleihen des Benutzers die nicht abgegeben wurden
+
+        return ausleihList.size() > 0;
+    }
+
+    public ObservableList<AusleihEntity> filterAusleihe(BenutzerEntity benutzer, ObjektEntity objekt, LocalDate ausleihdatum, int abgegeben) { //abgegeben: -1 = ignore, 0 = nicht abgegeben, 1 = abgegeben
         logger.info("Getting AusleiheEntities from Database and filtering for: ausleihdatum="+ausleihdatum.toString()+", benutzer="+benutzer.getKennung()+", objekt="+objekt.getInventarnummer());
         ObservableList<AusleihEntity> ausleihList = FXCollections.observableArrayList();
         Session session = sessionFactory.openSession();
@@ -79,6 +81,12 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
             if(objekt.getID() != -1){
                 predicates.add(builder.equal(root.get("objekt"), objekt));
             }
+            if(abgegeben != -1){
+                if(abgegeben == 0)
+                    predicates.add(builder.equal(root.get("abgegeben"), false));
+                else if(abgegeben == 1)
+                    predicates.add(builder.equal(root.get("abgegeben"), true));
+            }
 
             query.where(builder.and(predicates.toArray(new Predicate[0])));
             List<AusleihEntity> resultList = session.createQuery(query).getResultList();
@@ -93,6 +101,10 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
         }
         logger.info(ausleihList.stream().count()+" Element(s) found");
         return ausleihList;
+    }
+
+    public ObservableList<AusleihEntity> filterAusleihe(BenutzerEntity benutzer, ObjektEntity objekt, LocalDate ausleihdatum) {
+        return filterAusleihe(benutzer, objekt, ausleihdatum, -1);
     }
 
 
@@ -119,5 +131,23 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
         }
         logger.debug("Successfully loaded Benutzer-type Objects from Database");
         return ausleihList;
+    }
+
+    @Override
+    public int updateEntity(AusleihEntity oldEntity, AusleihEntity newEntity) {
+        return 0;
+
+    }
+
+    @Override
+    public int removeEntity(AusleihEntity entityToRemove) {
+        return 0;
+
+    }
+
+    @Override
+    public int insertEntity(AusleihEntity entityToInsert) {
+        return 0;
+
     }
 }

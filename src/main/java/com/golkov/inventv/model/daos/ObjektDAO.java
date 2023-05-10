@@ -34,27 +34,6 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
         sessionFactory = HibernateUtil.getSessionFactory();
     }
 
-    @Override
-    public void addEntity(ObjektEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void updateEntity(ObjektEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void deleteEntity(int id) {
-        //TODO
-    }
-
-    @Override
-    public ObjektEntity getEntityById(int id) {
-        //TODO
-        return null;
-    }
-
     public boolean istAusgeliehen(ObjektEntity objekt){
         AusleiheDAO a_dao = new AusleiheDAO();
         BenutzerEntity null_benutzer = new BenutzerEntity();
@@ -68,8 +47,8 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
         return false;
     }
 
-    public ObservableList<ObjektEntity> filterObjekt(Integer objektId, Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {
-        logger.info("Getting ObjektEntities from Database and filtering for: ID="+objektId.toString()+", inv.nr.="+invnr.toString()+", hersteller="+hersteller+", modell="+modell+", kaufdatum="+kaufdatum.toString()+", einzelpreis="+einzelpreis+", typ="+typ.getBezeichnung()+", ablageort="+ablageort.getBezeichnung());
+    public ObservableList<ObjektEntity> filterObjekt(Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {
+        logger.info("Getting ObjektEntities from Database and filtering for: inv.nr.="+invnr.toString()+", hersteller="+hersteller+", modell="+modell+", kaufdatum="+kaufdatum.toString()+", einzelpreis="+einzelpreis+", typ="+typ.getBezeichnung()+", ablageort="+ablageort.getBezeichnung());
         ObservableList<ObjektEntity> objektList = FXCollections.observableArrayList();
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -100,9 +79,6 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
             }
             if(ablageort.getID() != -1){
                 predicates.add(builder.equal(root.get("ablageort"), ablageort));
-            }
-            if (objektId != 0) {
-                predicates.add(builder.equal(root.get("ID"), objektId));
             }
 
             query.where(builder.and(predicates.toArray(new Predicate[0])));
@@ -144,5 +120,110 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
         }
         logger.debug("Successfully loaded Benutzer-type Objects from Database");
         return objektList;
+    }
+
+    @Override
+    public int updateEntity(ObjektEntity oldEntity, ObjektEntity newEntity) {
+        logger.info("Trying to update ObjektEntity in the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.merge(newEntity);
+            transaction.commit();
+            logger.debug("Successfully updated ObjektEntity in the database");
+        } catch (Exception e) {
+            logger.error("Failed to update ObjektEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
+    }
+
+    @Override
+    public int removeEntity(ObjektEntity entityToRemove) {
+        logger.info("Trying to remove ObjektEntity from the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            AusleiheDAO a_dao = new AusleiheDAO();
+
+            if(a_dao.getAusleihenByObjekt(entityToRemove).stream().anyMatch(x -> !x.isAbgegeben()))
+                return 1;
+
+            session.remove(entityToRemove);
+            transaction.commit();
+            logger.debug("Successfully removed ObjektEntity from the database");
+        } catch (Exception e) {
+            logger.error("Failed to remove ObjektEntity from the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
+
+    }
+
+    @Override
+    public int insertEntity(ObjektEntity entityToInsert) {
+        logger.info("Trying to insert ObjektEntity into the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+
+            // Check if another user with the same inventarnummer already exists
+            Query<Long> countQuery = session.createQuery("select count(*) from ObjektEntity where inventarnummer = :invnr", Long.class);
+            countQuery.setParameter("invnr", entityToInsert.getInventarnummer());
+            long count = countQuery.getSingleResult();
+            if (count > 0) {
+                logger.error("Another objekt with the same inventarnummer already exists. Update operation aborted.");
+                return 1;
+            }
+
+            // Überprüfe die Beziehungen und speichere sie gegebenenfalls separat
+            TypEntity typ = entityToInsert.getTyp();
+            if (typ != null && typ.getID() != 0) {
+                typ = session.merge(typ);
+                entityToInsert.setTyp(typ);
+            }else
+                return 2;
+
+            AblageortEntity ablageort = entityToInsert.getAblageort();
+            if (ablageort != null && ablageort.getID() != 0) {
+                ablageort = session.merge(ablageort);
+                entityToInsert.setAblageort(ablageort);
+            }else
+                return 2;
+
+            // Speichere das Objekt
+            session.persist(entityToInsert);
+
+            transaction.commit();
+            logger.debug("Successfully inserted ObjektEntity into the database");
+        } catch (Exception e) {
+            logger.error("Failed to insert ObjektEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
     }
 }

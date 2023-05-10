@@ -1,9 +1,11 @@
 package com.golkov.inventv.controller.listcontroller;
 
-import com.golkov.inventv.model.daos.AblageortDAO;
-import com.golkov.inventv.model.daos.BenutzerDAO;
-import com.golkov.inventv.model.daos.ObjektDAO;
-import com.golkov.inventv.model.daos.TypDAO;
+import com.golkov.inventv.Main;
+import com.golkov.inventv.ViewNavigation;
+import com.golkov.inventv.controller.NavigationViewController;
+import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
+import com.golkov.inventv.controller.detailcontroller.ObjektdatenDetailViewController;
+import com.golkov.inventv.model.daos.*;
 import com.golkov.inventv.model.entities.AblageortEntity;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.ObjektEntity;
@@ -14,18 +16,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.StringConverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -47,7 +53,6 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
         logger.info("Initializing ObjektdatenListeViewController...");
 
         //region Definition und Verhalten der Controls
-        tcObjektID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         tcObjektInventarnummer.setCellValueFactory(new PropertyValueFactory<>("inventarnummer"));
         tcObjektTyp.setCellValueFactory(new PropertyValueFactory<>("typ"));
 
@@ -106,12 +111,57 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
                 // Add action listeners to the buttons
                 editButton.setOnAction(event -> {
                     ObjektEntity objekt = getTableView().getItems().get(getIndex());
-                    //TODO: Bearbeiten
+                    //Logik zum wechseln der Ansichten von Liste zu Detailview mithilfe der ViewNavigation-Klasse
+                    try {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/ObjektdatenDetailView.fxml"));
+                        ObjektdatenDetailViewController controller = new ObjektdatenDetailViewController(objekt);
+                        loader.setController(controller);
+                        Node node = loader.load();
+                        ViewNavigation.push(2, node);
+
+                        NavigationViewController navigationController = NavigationViewController.getInstance();
+                        AnchorPane ap = navigationController.getAnchorPane();
+                        ap.setLeftAnchor(node, 0.0);
+                        ap.setRightAnchor(node, 0.0);
+                        ap.setTopAnchor(node, 0.0);
+                        ap.setBottomAnchor(node, 0.0);
+
+                        ap.getChildren().setAll(node);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
 
                 deleteButton.setOnAction(event -> {
                     ObjektEntity objekt = getTableView().getItems().get(getIndex());
-                    //TODO: Löschsequenz
+                    int error = o_dao.removeEntity(objekt);
+
+                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
+                        AusleiheDAO a_dao = new AusleiheDAO();
+                        BenutzerEntity ausleihender = a_dao.getAusleiheByObjekt(objekt, 0).getBenutzer();
+
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Objekt kann nicht entfernt werden");
+                        alert.setContentText("Beim Entfernen des Objektes ist ein Fehler aufgetreten: Das Objekt mit der Inventarnummer '" + objekt.getInventarnummer() + "' wird aktuell noch vom Benutzer '"+ausleihender.getNachname() + ", "+ausleihender.getVorname()+"'ausgeliehen. Bitte stellen Sie sicher, dass der betroffene Benutzer das Objekt zurückgibt und versuchen Sie es erneut.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    } else if (error == 2) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Datenbankfehler");
+                        alert.setContentText("Bei der Entfernung des Objekts ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    } else {
+                        sucheStartenButtonTapped(new ActionEvent()); //Neuladen der Liste
+                    }
                 });
             }
 
@@ -186,8 +236,7 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
 
         //Algorithmus zum Deaktivieren des "Suchen"-Knopfes bei leeren Filterfeldern
         btnSearchObjekte.disableProperty().bind(searchButtonDisabled);
-        searchButtonDisabled.bind(txtObjektID.textProperty().isEmpty()
-                .and(txtInventarnummer.textProperty().isEmpty())
+        searchButtonDisabled.bind(txtInventarnummer.textProperty().isEmpty()
                 .and(txtHersteller.textProperty().isEmpty())
                 .and(txtModell.textProperty().isEmpty())
                 .and(cbKaufdatum.valueProperty().isNull())
@@ -197,11 +246,6 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
         );
 
         //Algorithmus zum Verhindern von nicht-numerischen Eingaben in diversen numerischen Feldern
-        txtObjektID.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!"0123456789".contains(event.getCharacter())) {
-                event.consume();
-            }
-        });
         txtInventarnummer.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             if (!"0123456789".contains(event.getCharacter())) {
                 event.consume();
@@ -260,9 +304,6 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
     private TableView<ObjektEntity> lstObjektEntities;
 
     @FXML
-    private TableColumn<ObjektEntity, Integer> tcObjektID;
-
-    @FXML
     private TextField txtEinzelpreis;
 
     @FXML
@@ -274,23 +315,39 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
     @FXML
     private TextField txtModell;
 
-    @FXML
-    private TextField txtObjektID;
-
     //endregion
+
+    @FXML
+    void newObjektButtonTapped(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/ObjektdatenDetailView.fxml"));
+            ObjektdatenDetailViewController controller = new ObjektdatenDetailViewController();
+            loader.setController(controller);
+            Node node = loader.load();
+            ViewNavigation.push(2, node);
+
+            NavigationViewController navigationController = NavigationViewController.getInstance();
+            AnchorPane ap = navigationController.getAnchorPane();
+            ap.setLeftAnchor(node, 0.0);
+            ap.setRightAnchor(node, 0.0);
+            ap.setTopAnchor(node, 0.0);
+            ap.setBottomAnchor(node, 0.0);
+
+            ap.getChildren().setAll(node);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @FXML
     void sucheStartenButtonTapped(ActionEvent event) {
         logger.info("Search initiated...");
-        int objektid = 0;
         int invnr = 0;
         LocalDate kaufdatum = LocalDate.of(1900, 1, 1);
         float einzelpreis = -1;
         TypEntity typ = new TypEntity(); typ.setID(-1);
         AblageortEntity ablageort = new AblageortEntity(); ablageort.setID(-1);
 
-        if(!txtObjektID.getText().equals(""))
-            objektid = Integer.parseInt(txtObjektID.getText());
         if(!txtInventarnummer.getText().equals(""))
             invnr = Integer.parseInt(txtInventarnummer.getText());
         if(!(cbKaufdatum.getValue() == null))
@@ -303,7 +360,7 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
             ablageort = cbAblageort.getValue();
 
 
-        foundEntities.setAll(o_dao.filterObjekt(objektid,invnr,txtHersteller.getText(),txtModell.getText(),kaufdatum,einzelpreis,typ,ablageort));
+        foundEntities.setAll(o_dao.filterObjekt(invnr,txtHersteller.getText(),txtModell.getText(),kaufdatum,einzelpreis,typ,ablageort));
         lblFoundObjektEntities.setText(String.valueOf(foundEntities.size()));
         logger.info("Search finished!");
     }

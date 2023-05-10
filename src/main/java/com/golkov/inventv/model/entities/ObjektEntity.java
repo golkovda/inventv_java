@@ -84,11 +84,11 @@ public class ObjektEntity {
     @Column(name="ObjektID", nullable = false)
     private int ID;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="TypID",referencedColumnName = "TypID")
     private TypEntity typ;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="AblageortID",referencedColumnName = "AblageortID")
     private AblageortEntity ablageort;
 

@@ -97,7 +97,31 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
 
                 deleteButton.setOnAction(event -> {
                     BenutzerEntity benutzer = getTableView().getItems().get(getIndex());
-                    //TODO: Löschsequenz
+                    int error = b_dao.removeEntity(benutzer);
+
+                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Benutzer kann nicht entfernt werden");
+                        alert.setContentText("Beim Entfernen des Benutzers ist ein Fehler aufgetreten: Der Benutzer mit der Kennung '" + benutzer.getKennung() + "' hat noch offene Ausleihen. Bitte stellen Sie sicher, dass der betroffene Benutzer alle Ausleihen zurückgibt und versuchen Sie es erneut.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    } else if (error == 2) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Datenbankfehler");
+                        alert.setContentText("Bei der Entfernung des Benutzers ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    } else {
+                        sucheStartenButtonTapped(new ActionEvent()); //Neuladen der Liste
+                    }
                 });
             }
 
@@ -208,6 +232,29 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
     private TextField txtBenutzerVorname;
 
     //endregion
+
+    @FXML
+    void newBenutzerButtonTapped(ActionEvent event) {
+        //Logik zum wechseln der Ansichten von Liste zu Detailview mithilfe der ViewNavigation-Klasse
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/BenutzerdatenDetailView.fxml"));
+            BenutzerdatenDetailViewController controller = new BenutzerdatenDetailViewController();
+            loader.setController(controller);
+            Node node = loader.load();
+            ViewNavigation.push(1, node);
+
+            NavigationViewController navigationController = NavigationViewController.getInstance();
+            AnchorPane ap = navigationController.getAnchorPane();
+            ap.setLeftAnchor(node, 0.0);
+            ap.setRightAnchor(node, 0.0);
+            ap.setTopAnchor(node, 0.0);
+            ap.setBottomAnchor(node, 0.0);
+
+            ap.getChildren().setAll(node);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @FXML
     void sucheStartenButtonTapped(ActionEvent event) {

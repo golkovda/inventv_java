@@ -11,6 +11,8 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -31,27 +33,6 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
 
     public BenutzerDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
-    }
-
-    @Override
-    public void addEntity(BenutzerEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void updateEntity(BenutzerEntity entity) {
-        //TODO
-    }
-
-    @Override
-    public void deleteEntity(int id) {
-        //TODO
-    }
-
-    @Override
-    public BenutzerEntity getEntityById(int id) {
-        //TODO
-        return null;
     }
 
     public BenutzerEntity getEntityByKennung(String kennung){
@@ -136,5 +117,104 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
         }
         logger.debug("Successfully loaded Benutzer-type Objects from Database");
         return benutzerList;
+    }
+
+    @Override
+    public int updateEntity(BenutzerEntity oldEntity, BenutzerEntity newEntity) { //0 = keine Fehler, 1 = Kennung fehler, 2 = sonstige
+        logger.info("Trying to update BenutzerEntity in the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+
+            // Check if another user with the same kennung already exists
+            Query<Long> countQuery = session.createQuery("select count(*) from BenutzerEntity where kennung = :kennung and ID != :id", Long.class);
+            countQuery.setParameter("kennung", newEntity.getKennung());
+            countQuery.setParameter("id", newEntity.getID());
+            long count = countQuery.getSingleResult();
+            if (count > 0) {
+                logger.error("Another user with the same kennung already exists. Update operation aborted.");
+                return 1;
+            }
+
+            session.merge(newEntity);
+            transaction.commit();
+            logger.debug("Successfully updated BenutzerEntity in the database");
+        } catch (Exception e) {
+            logger.error("Failed to update BenutzerEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
+    }
+
+    @Override
+    public int removeEntity(BenutzerEntity entityToRemove) { //0 = keine Fehler, 1 = Entfernen fehler, 2 = sonstige
+        logger.info("Trying to remove BenutzerEntity from the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            AusleiheDAO a_dao = new AusleiheDAO();
+
+            if(a_dao.hatOffeneAusleihen(entityToRemove))
+                return 1;
+
+            session.remove(entityToRemove);
+            transaction.commit();
+            logger.debug("Successfully removed BenutzerEntity from the database");
+        } catch (Exception e) {
+            logger.error("Failed to remove BenutzerEntity from the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
+    }
+
+    @Override
+    public int insertEntity(BenutzerEntity entityToInsert) {
+        logger.info("Trying to insert BenutzerEntity into the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+
+            // Check if another user with the same kennung already exists
+            Query<Long> countQuery = session.createQuery("select count(*) from BenutzerEntity where kennung = :kennung", Long.class);
+            countQuery.setParameter("kennung", entityToInsert.getKennung());
+            long count = countQuery.getSingleResult();
+            if (count > 0) {
+                logger.error("Another user with the same kennung already exists. Update operation aborted.");
+                return 1;
+            }
+
+            session.persist(entityToInsert);
+            transaction.commit();
+            logger.debug("Successfully inserted BenutzerEntity into the database");
+        } catch (Exception e) {
+            logger.error("Failed to insert BenutzerEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
+
     }
 }

@@ -136,6 +136,7 @@ public class ObjektdatenDetailViewController extends DetailViewControllerBase<Ob
                             && cbKaufdatum.getValue().equals(UnchangedEntity.getKaufdatum());
                 }
             };
+            saveButtonDisabled.bind(saveButtonDisabled2);
         } else {
             saveButtonDisabled.bind(txtInventarnummer.textProperty().isEmpty()
                     .or(txtHersteller.textProperty().isEmpty())

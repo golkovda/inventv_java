@@ -52,11 +52,11 @@ public class AusleihEntity {
     @Column(name="AusleihID", nullable = false)
     private int ID;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="BenutzerID",referencedColumnName = "BenutzerID")
     private BenutzerEntity benutzer;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name="ObjektID",referencedColumnName = "ObjektID")
     private ObjektEntity objekt;
 

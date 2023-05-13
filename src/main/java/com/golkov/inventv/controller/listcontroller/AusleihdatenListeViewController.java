@@ -1,27 +1,38 @@
 package com.golkov.inventv.controller.listcontroller;
 
+import com.golkov.inventv.Main;
+import com.golkov.inventv.controller.detailcontroller.AusleihenDetailViewController;
+import com.golkov.inventv.controller.detailcontroller.TypAblageortDetailViewController;
 import com.golkov.inventv.model.daos.*;
 import com.golkov.inventv.model.entities.*;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AusleihdatenListeViewController extends ListeViewControllerBase<AusleihEntity> implements Initializable{
@@ -71,32 +82,108 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
             }
         });
 
+        //Logik zum Umwandeln von true/false in ja/nein
+        tcAusleiheAbgegeben.setCellFactory(column -> new TableCell<AusleihEntity, Boolean>() {
+            @Override
+            protected void updateItem(Boolean ausgeliehen, boolean empty) {
+                super.updateItem(ausgeliehen, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(ausgeliehen ? "Ja" : "Nein");
+                }
+            }
+        });
+
+        //Logik zur Bestimmung von Ausleihen des Objekts
+        tcAusleiheAbgegeben.setCellValueFactory(cellData -> {
+            AusleihEntity ausleihe = cellData.getValue();           
+            return new SimpleBooleanProperty(ausleihe.isAbgegeben());
+        });
+
         tcAusleiheAktion.setCellFactory(column -> new TableCell<>(){
-            private final Button editButton = new Button();
             private final Button deleteButton = new Button();
+            private final Button rueckgabeButton = new Button();
 
             {
-                // Setze das Bild für den Edit-Button
-                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/edit.png")));
-                imageView.setFitHeight(15);
-                imageView.setFitWidth(15);
-                editButton.setGraphic(imageView);
-
                 // Setze das Bild für den Delete-Button
-                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 deleteButton.setGraphic(imageView);
 
+                // Setze das Bild für den Ausleihe-Button
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/return.png")));
+                imageView.setFitHeight(15);
+                imageView.setFitWidth(15);
+                rueckgabeButton.setGraphic(imageView);
+
+
+                BooleanBinding isRueckgabeDisabled = new BooleanBinding() {
+                    {
+                        super.bind(emptyProperty()); // Bindung an den aktuellen Eintrag
+                    }
+
+                    @Override
+                    protected boolean computeValue() {
+                        if(isEmpty())
+                            return true;
+                        AusleihEntity ausleihe = getTableRow().getItem();
+                        return ausleihe.isAbgegeben(); // true, wenn deaktiviert, false, wenn aktiviert
+                    }
+                };
+
                 // Add action listeners to the buttons
-                editButton.setOnAction(event -> {
+                rueckgabeButton.setOnAction(event -> {
                     AusleihEntity ausleihe = getTableView().getItems().get(getIndex());
-                    //TODO: Bearbeiten
+                    AusleihEntity newEntity = ausleihe;
+                    newEntity.setAbgegeben(true);
+                    int error = a_dao.updateEntity(ausleihe, newEntity);
+
+                    if (error == 2) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Datenbankfehler");
+                        alert.setContentText("Bei der Entfernung der Ausleihe ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    }else{
+                        lstAusleiheEntities.getItems().set(getIndex(), newEntity);
+                    }
                 });
+                rueckgabeButton.disableProperty().bind(isRueckgabeDisabled);
+
 
                 deleteButton.setOnAction(event -> {
                     AusleihEntity ausleihe = getTableView().getItems().get(getIndex());
-                    //TODO: Löschsequenz
+                    int error = a_dao.removeEntity(ausleihe);
+
+                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Ausleihe kann nicht aus Historie entfernt werden");
+                        alert.setContentText("Beim Entfernen des Ausleihe ist ein Fehler aufgetreten: Der Benutzer '" + ausleihe.getBenutzer().getNachname() + ", " + ausleihe.getBenutzer().getVorname() + "' hat das Objekt mit der Inventarnummer '"+ausleihe.getObjekt().getInventarnummer()+"' noch nicht abgegeben. Bitte stellen Sie sicher, dass der betroffene Benutzer das Objekt zurückgibt und versuchen Sie es erneut.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    } else if (error == 2) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Fehler beim Entfernen");
+                        alert.setHeaderText("Datenbankfehler");
+                        alert.setContentText("Bei der Entfernung der Ausleihe ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
+                        alert.showAndWait().ifPresent(rs -> {
+                            if (rs == ButtonType.OK) {
+                                alert.close();
+                            }
+                        });
+                    } else {
+                        lstAusleiheEntities.getItems().remove(ausleihe);
+                    }
                 });
             }
 
@@ -111,7 +198,7 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
                     // Set the buttons as the graphic of the cell
                     HBox container = new HBox(10);
                     container.setAlignment(Pos.CENTER);
-                    container.getChildren().addAll(editButton, deleteButton);
+                    container.getChildren().addAll(rueckgabeButton, deleteButton);
                     setGraphic(container);
                 }
             }
@@ -256,5 +343,23 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
         foundEntities.setAll(a_dao.getAllEntities());
         lblFoundAusleiheEntities.setText(String.valueOf(foundEntities.size()));
         logger.info("Search finished!");
+    }
+
+    @FXML
+    void newAusleiheButtonTapped(ActionEvent event){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/AusleihenDetailView.fxml"));
+            AusleihenDetailViewController controller = new AusleihenDetailViewController(stage);
+
+            loader.setController(controller);
+            Parent root = loader.load();
+
+            stage.setTitle("Neue Ausleihe");
+            stage.setScene(new Scene(root, 500, 130));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

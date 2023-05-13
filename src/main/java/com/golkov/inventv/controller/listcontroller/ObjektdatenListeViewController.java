@@ -130,6 +130,7 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    //lstObjektEntities.getItems().set(getIndex(), o_dao.getObjektById(objekt.getID()));
                 });
 
                 deleteButton.setOnAction(event -> {

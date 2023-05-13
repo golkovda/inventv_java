@@ -135,19 +135,94 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
 
     @Override
     public int updateEntity(AusleihEntity oldEntity, AusleihEntity newEntity) {
+        logger.info("Trying to update AusleihEntity in the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.merge(newEntity);
+            transaction.commit();
+            logger.debug("Successfully updated AusleihEntity in the database");
+        } catch (Exception e) {
+            logger.error("Failed to update AusleihEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
         return 0;
-
     }
 
     @Override
     public int removeEntity(AusleihEntity entityToRemove) {
-        return 0;
+        logger.info("Trying to remove AusleihEntity from the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            if (!entityToRemove.isAbgegeben())
+                return 1;
 
+            session.remove(entityToRemove);
+            transaction.commit();
+            logger.debug("Successfully removed AusleihEntity from the database");
+        } catch (Exception e) {
+            logger.error("Failed to remove AusleihEntity from the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
     }
 
     @Override
     public int insertEntity(AusleihEntity entityToInsert) {
-        return 0;
+        logger.info("Trying to insert AusleihEntity into the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
 
+            // Überprüfe die Beziehungen und speichere sie gegebenenfalls separat
+            ObjektEntity objekt = entityToInsert.getObjekt();
+            if (objekt != null && objekt.getID() != 0) {
+                objekt = session.merge(objekt);
+                entityToInsert.setObjekt(objekt);
+            } else
+                return 2;
+
+            BenutzerEntity benutzer = entityToInsert.getBenutzer();
+            if (benutzer != null && benutzer.getID() != 0) {
+                benutzer = session.merge(benutzer);
+                entityToInsert.setBenutzer(benutzer);
+            } else
+                return 2;
+
+            // Speichere das Objekt
+            session.persist(entityToInsert);
+
+            transaction.commit();
+            logger.debug("Successfully inserted AusleihEntity into the database");
+        } catch (Exception e) {
+            logger.error("Failed to insert AusleihEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
     }
 }

@@ -52,6 +52,9 @@ public class NavigationViewController implements Initializable {
     }
 
     @FXML
+    private Button btnTypAblageortverwaltung;
+
+    @FXML
     private Button btnAusleihenverwaltung;
 
     @FXML
@@ -86,8 +89,19 @@ public class NavigationViewController implements Initializable {
     }
 
     @FXML
+    void typablageortverwaltungButtonTapped(ActionEvent event) {
+        logger.info("Knopf gedrückt: Typ/Ablageortverwaltung");
+        lblBriefText.setText("Verwaltung: Typen und Ablageorte");
+        if (ViewNavigation.getSize(4) == 0)
+            Globals.loadFreshPane(vpAnchorPane, "views/TypAblageortListeView.fxml", 4);
+        else
+            Globals.loadExistingPane(vpAnchorPane, 4);
+    }
+
+    @FXML
     void ausleihenverwaltungButtonTapped(ActionEvent event) throws IOException {
-        lblBriefText.setText("Ausleihenverwaltung");
+        logger.info("Knopf gedrückt: Ausleihenverwaltung");
+        lblBriefText.setText("Verwaltung: Ausleihen");
         if (ViewNavigation.getSize(3) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/AusleihenListeView.fxml", 3);
         else
@@ -99,7 +113,7 @@ public class NavigationViewController implements Initializable {
     @FXML
     void benutzerverwaltungButtonTapped(ActionEvent event) throws IOException {
         logger.info("Knopf gedrückt: Benutzerverwaltung");
-        lblBriefText.setText("Benutzerverwaltung");
+        lblBriefText.setText("Verwaltung: Benutzer");
         if (ViewNavigation.getSize(1) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/BenutzerdatenListeView.fxml", 1);
         else
@@ -116,7 +130,7 @@ public class NavigationViewController implements Initializable {
     @FXML
     void objektverwaltungButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Objektverwaltung");
-        lblBriefText.setText("Objektverwaltung");
+        lblBriefText.setText("Verwaltung: Objekte");
         if (ViewNavigation.getSize(2) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/ObjektdatenListeView.fxml", 2);
         else

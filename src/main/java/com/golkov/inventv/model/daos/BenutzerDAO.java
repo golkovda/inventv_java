@@ -52,6 +52,10 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
         return false;
     }
 
+    public BenutzerEntity getBenutzerById(int id){
+        return filterBenutzer(id, "","","").get(0);
+    }
+
 
     public ObservableList<BenutzerEntity> filterBenutzer(Integer benutzerId, String kennung, String vorname, String nachname) {
         logger.info("Getting BenutzerEntities from Database and filtering for: ID=" + benutzerId.toString() + ", kennung=" + kennung + ", vorname=" + vorname + ", nachname=" + nachname);

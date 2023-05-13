@@ -11,6 +11,7 @@ public class ViewNavigation {
         put(1, new Stack<Node>());
         put(2, new Stack<Node>());
         put(3, new Stack<Node>());
+        put(4, new Stack<Node>());
     }};
 
     public static void push(int index, Node view) {

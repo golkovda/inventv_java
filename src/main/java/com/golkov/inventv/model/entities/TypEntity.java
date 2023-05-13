@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="Typ")
-public class TypEntity {
+public class TypEntity implements TAEntity{
 
     //region getters and setters
 

@@ -25,30 +25,50 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ObjektDAO implements IEntityDAO<ObjektEntity>{
+public class ObjektDAO implements IEntityDAO<ObjektEntity> {
     private static final Logger logger = LogManager.getLogger(NavigationViewController.class);
 
     private final SessionFactory sessionFactory;
 
-    public ObjektDAO(){
+    public ObjektDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
     }
 
-    public boolean istAusgeliehen(ObjektEntity objekt){
+    public boolean istAusgeliehen(ObjektEntity objekt) {
         AusleiheDAO a_dao = new AusleiheDAO();
         BenutzerEntity null_benutzer = new BenutzerEntity();
         null_benutzer.setID(-1);
-        ObservableList<AusleihEntity> ausleihen = a_dao.filterAusleihe(null_benutzer, objekt, LocalDate.of(1900,1,1));
+        ObservableList<AusleihEntity> ausleihen = a_dao.filterAusleihe(null_benutzer, objekt, LocalDate.of(1900, 1, 1));
 
         for (AusleihEntity a : ausleihen) {
-            if(!a.isAbgegeben())
+            if (!a.isAbgegeben())
                 return true;
         }
         return false;
     }
 
-    public ObservableList<ObjektEntity> filterObjekt(Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {
-        logger.info("Getting ObjektEntities from Database and filtering for: inv.nr.="+invnr.toString()+", hersteller="+hersteller+", modell="+modell+", kaufdatum="+kaufdatum.toString()+", einzelpreis="+einzelpreis+", typ="+typ.getBezeichnung()+", ablageort="+ablageort.getBezeichnung());
+    public ObjektEntity getObjektById(int id){
+        TypEntity null_entity = new TypEntity();
+        AblageortEntity null_entity2 = new AblageortEntity();
+        null_entity.setID(-1);
+        null_entity2.setID(-1);
+        return filterObjekt(id,0, "", "", LocalDate.of(1900, 1, 1), -1, null_entity, null_entity2).get(0);
+    }
+
+    public int getAnzahlObjekteByTyp(TypEntity typ) {
+        AblageortEntity null_entity = new AblageortEntity();
+        null_entity.setID(-1);
+        return filterObjekt(0, "", "", LocalDate.of(1900, 1, 1), -1, typ, null_entity).size();
+    }
+
+    public int getAnzahlObjekteByAblageort(AblageortEntity aort) {
+        TypEntity null_entity = new TypEntity();
+        null_entity.setID(-1);
+        return filterObjekt(0, "", "", LocalDate.of(1900, 1, 1), -1, null_entity, aort).size();
+    }
+
+    public ObservableList<ObjektEntity> filterObjekt(int id, Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {
+        logger.info("Getting ObjektEntities from Database and filtering for: inv.nr.=" + invnr.toString() + ", hersteller=" + hersteller + ", modell=" + modell + ", kaufdatum=" + kaufdatum.toString() + ", einzelpreis=" + einzelpreis + ", typ=" + typ.getBezeichnung() + ", ablageort=" + ablageort.getBezeichnung());
         ObservableList<ObjektEntity> objektList = FXCollections.observableArrayList();
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -68,17 +88,20 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
             if (modell != null && !modell.isEmpty()) {
                 predicates.add(builder.like(root.get("modell"), modell.replace('*', '%')));
             }
-            if (kaufdatum.getYear() != 1900 ) {
+            if (kaufdatum.getYear() != 1900) {
                 predicates.add(builder.equal(root.get("kaufdatum"), kaufdatum));
             }
-            if (einzelpreis != -1 ) {
+            if (einzelpreis != -1) {
                 predicates.add(builder.equal(root.get("einzelpreis"), einzelpreis));
             }
-            if(typ.getID() != -1){
+            if (typ.getID() != -1) {
                 predicates.add(builder.equal(root.get("typ"), typ));
             }
-            if(ablageort.getID() != -1){
+            if (ablageort.getID() != -1) {
                 predicates.add(builder.equal(root.get("ablageort"), ablageort));
+            }
+            if(id != -1){
+                predicates.add(builder.equal(root.get("ID"), id));
             }
 
             query.where(builder.and(predicates.toArray(new Predicate[0])));
@@ -86,14 +109,18 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
             objektList.addAll(resultList);
             tx.commit();
         } catch (HibernateException e) {
-            logger.error("Exception occured while filtering data: "+ Arrays.toString(e.getStackTrace()));
-            if (tx!=null) tx.rollback();
+            logger.error("Exception occured while filtering data: " + Arrays.toString(e.getStackTrace()));
+            if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
             session.close();
         }
-        logger.info(objektList.stream().count()+" Element(s) found");
+        logger.info(objektList.stream().count() + " Element(s) found");
         return objektList;
+    }
+
+    public ObservableList<ObjektEntity> filterObjekt(Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {
+        return filterObjekt(-1, invnr, hersteller, modell, kaufdatum, einzelpreis, typ, ablageort);
     }
 
 
@@ -109,7 +136,7 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
             objektList.addAll(resultList);
             transaction.commit();
         } catch (Exception e) {
-            logger.error("Failed to load Entries from Database: "+ Arrays.toString(e.getStackTrace()));
+            logger.error("Failed to load Entries from Database: " + Arrays.toString(e.getStackTrace()));
             if (transaction != null) {
                 logger.info("Rolling back transaction...");
                 transaction.rollback();
@@ -120,6 +147,19 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
         }
         logger.debug("Successfully loaded Benutzer-type Objects from Database");
         return objektList;
+    }
+
+    public ObservableList<ObjektEntity> getAvailableObjektEntities() {
+        AusleiheDAO a_dao = new AusleiheDAO();
+        ObservableList<ObjektEntity> objektList = FXCollections.observableArrayList();
+
+        for (AusleihEntity entity : a_dao.getAllEntities()) {
+            if(entity.isAbgegeben())
+                objektList.add(entity.getObjekt());
+        }
+
+        return objektList;
+
     }
 
     @Override
@@ -155,7 +195,7 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
             transaction = session.beginTransaction();
             AusleiheDAO a_dao = new AusleiheDAO();
 
-            if(a_dao.getAusleihenByObjekt(entityToRemove).stream().anyMatch(x -> !x.isAbgegeben()))
+            if (a_dao.getAusleihenByObjekt(entityToRemove).stream().anyMatch(x -> !x.isAbgegeben()))
                 return 1;
 
             session.remove(entityToRemove);
@@ -198,14 +238,14 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity>{
             if (typ != null && typ.getID() != 0) {
                 typ = session.merge(typ);
                 entityToInsert.setTyp(typ);
-            }else
+            } else
                 return 2;
 
             AblageortEntity ablageort = entityToInsert.getAblageort();
             if (ablageort != null && ablageort.getID() != 0) {
                 ablageort = session.merge(ablageort);
                 entityToInsert.setAblageort(ablageort);
-            }else
+            } else
                 return 2;
 
             // Speichere das Objekt

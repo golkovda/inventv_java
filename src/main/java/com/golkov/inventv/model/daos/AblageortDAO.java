@@ -3,6 +3,7 @@ package com.golkov.inventv.model.daos;
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.model.HibernateUtil;
 import com.golkov.inventv.model.entities.AblageortEntity;
+import com.golkov.inventv.model.entities.TypEntity;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -28,6 +29,10 @@ public class AblageortDAO implements IEntityDAO<AblageortEntity>{
 
     public AblageortDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
+    }
+
+    public AblageortEntity getAblageortById(int id){
+        return filterAblageort(id,"").get(0);
     }
 
     public ObservableList<AblageortEntity> filterAblageort(Integer ablageortId, String bezeichnung) {
@@ -92,19 +97,99 @@ public class AblageortDAO implements IEntityDAO<AblageortEntity>{
 
     @Override
     public int updateEntity(AblageortEntity oldEntity, AblageortEntity newEntity) {
-        return 0;
+        logger.info("Trying to update AblageortEntity in the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
 
+            // Check if another user with the same kennung already exists
+            Query<Long> countQuery = session.createQuery("select count(*) from AblageortEntity where bezeichnung = :bez and ID != :id", Long.class);
+            countQuery.setParameter("bez", newEntity.getBezeichnung());
+            countQuery.setParameter("id", newEntity.getID());
+            long count = countQuery.getSingleResult();
+            if (count > 0) {
+                logger.error("Another ablageort with the same bezeichnung already exists. Update operation aborted.");
+                return 1;
+            }
+
+            session.merge(newEntity);
+            transaction.commit();
+            logger.debug("Successfully updated AblageortEntity in the database");
+        } catch (Exception e) {
+            logger.error("Failed to update AblageortEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
     }
 
     @Override
     public int removeEntity(AblageortEntity entityToRemove) {
-        return 0;
+        logger.info("Trying to remove AblageortEntity from the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            ObjektDAO o_dao = new ObjektDAO();
 
+            if(o_dao.getAnzahlObjekteByAblageort(entityToRemove) > 0)
+                return 1;
+
+            session.remove(entityToRemove);
+            transaction.commit();
+            logger.debug("Successfully removed AblageortEntity from the database");
+        } catch (Exception e) {
+            logger.error("Failed to remove AblageortEntity from the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
     }
 
     @Override
     public int insertEntity(AblageortEntity entityToInsert) {
-        return 0;
+        logger.info("Trying to insert AblageortEntity into the database");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
 
+            // Check if another user with the same kennung already exists
+            Query<Long> countQuery = session.createQuery("select count(*) from AblageortEntity where bezeichnung = :bez", Long.class);
+            countQuery.setParameter("bez", entityToInsert.getBezeichnung());
+            long count = countQuery.getSingleResult();
+            if (count > 0) {
+                logger.error("Another Ablageort with the same bezeichnung already exists. Update operation aborted.");
+                return 1;
+            }
+
+            session.persist(entityToInsert);
+            transaction.commit();
+            logger.debug("Successfully inserted AblageortEntity into the database");
+        } catch (Exception e) {
+            logger.error("Failed to insert AblageortEntity in the database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return 2;
+        } finally {
+            session.close();
+        }
+        return 0;
     }
 }

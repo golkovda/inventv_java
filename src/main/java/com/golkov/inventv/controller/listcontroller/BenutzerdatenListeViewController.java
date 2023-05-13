@@ -93,6 +93,8 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    //lstBenutzerEntities.getItems().set(getIndex(), b_dao.getBenutzerById(benutzer.getID()));
+                    //lstBenutzerEntities.refresh();
                 });
 
                 deleteButton.setOnAction(event -> {

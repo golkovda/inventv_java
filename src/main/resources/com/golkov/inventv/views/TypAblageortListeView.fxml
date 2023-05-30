@@ -45,11 +45,11 @@
                   <RowConstraints maxHeight="37.0" minHeight="37.0" prefHeight="37.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Bezeichnung:" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                  </Label>
+                  <ChoiceBox fx:id="choiceSuchart" maxHeight="1.7976931348623157E308" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="1.0" left="10.0" top="1.0" />
+                     </GridPane.margin>
+                  </ChoiceBox>
                   <TextField fx:id="txtBezeichnung" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
@@ -58,16 +58,16 @@
                         <Insets bottom="1.0" left="10.0" top="1.0" />
                      </GridPane.margin>
                   </TextField>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Bezeichnung:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
                   <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Anzeige:">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="choiceSuchart" maxHeight="1.7976931348623157E308" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="1.0" left="10.0" top="1.0" />
-                     </GridPane.margin>
-                  </ChoiceBox>
                </children>
                <GridPane.margin>
                   <Insets />

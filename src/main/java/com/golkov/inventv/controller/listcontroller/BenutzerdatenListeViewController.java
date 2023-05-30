@@ -1,19 +1,24 @@
 package com.golkov.inventv.controller.listcontroller;
 
 import com.golkov.inventv.Globals;
+import com.golkov.inventv.AlertTexts;
 import com.golkov.inventv.Main;
 import com.golkov.inventv.ViewNavigation;
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.ObjektEntity;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,10 +38,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
-public class BenutzerdatenListeViewController extends ListeViewControllerBase<BenutzerEntity> implements Initializable{
+import static com.golkov.inventv.Globals.showAlert;
+
+public class BenutzerdatenListeViewController extends ListeViewControllerBase<BenutzerEntity> implements Initializable, DataObserver {
 
     private static final Logger logger = LogManager.getLogger(BenutzerdatenListeViewController.class);
     BenutzerDAO b_dao = new BenutzerDAO();
@@ -44,6 +53,10 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
     public BenutzerdatenListeViewController(){
         super();
         foundEntities = FXCollections.observableArrayList();
+    }
+
+    public void updateData(){
+        sucheStartenButtonTapped(new ActionEvent());
     }
 
 
@@ -78,6 +91,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
                     try {
                         FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/BenutzerdatenDetailView.fxml"));
                         BenutzerdatenDetailViewController controller = new BenutzerdatenDetailViewController(benutzer);
+                        controller.setObserver(BenutzerdatenListeViewController.this);
                         loader.setController(controller);
                         Node node = loader.load();
                         ViewNavigation.push(1, node);
@@ -93,38 +107,40 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    //lstBenutzerEntities.getItems().set(getIndex(), b_dao.getBenutzerById(benutzer.getID()));
-                    //lstBenutzerEntities.refresh();
                 });
+
+                BooleanBinding isEntfernenDisabled = new BooleanBinding() {
+                    {
+                        super.bind(emptyProperty()); // Bindung an den aktuellen Eintrag
+                    }
+
+                    @Override
+                    protected boolean computeValue() {
+                        if(isEmpty())
+                            return true;
+                        BenutzerEntity benutzer = getTableRow().getItem();
+                        return b_dao.hatOffeneAusleihen(benutzer) || benutzer.getID() == b_dao.getEntityByKennung(Globals.current_user).getID(); // true, wenn deaktiviert, false, wenn aktiviert
+                    }
+                };
 
                 deleteButton.setOnAction(event -> {
                     BenutzerEntity benutzer = getTableView().getItems().get(getIndex());
                     int error = b_dao.removeEntity(benutzer);
 
-                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Benutzer kann nicht entfernt werden");
-                        alert.setContentText("Beim Entfernen des Benutzers ist ein Fehler aufgetreten: Der Benutzer mit der Kennung '" + benutzer.getKennung() + "' hat noch offene Ausleihen. Bitte stellen Sie sicher, dass der betroffene Benutzer alle Ausleihen zurückgibt und versuchen Sie es erneut.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
-                    } else if (error == 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Datenbankfehler");
-                        alert.setContentText("Bei der Entfernung des Benutzers ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
+                    if (error == 2) {
+                        showAlert(
+                                Alert.AlertType.ERROR,
+                                String.format(AlertTexts.GENERIC_ERROR_HEADER, "Entfernen"),
+                                "Datenbankfehler",
+                                String.format(AlertTexts.GENERIC_ERROR_MESSAGE, "Entfernung", "Benutzers"),
+                                alert -> alert.close(),
+                                ButtonType.OK
+                        );
                     } else {
-                        sucheStartenButtonTapped(new ActionEvent()); //Neuladen der Liste
+                        lstBenutzerEntities.getItems().remove(benutzer);
                     }
                 });
+                deleteButton.disableProperty().bind(isEntfernenDisabled);
             }
 
             @Override
@@ -195,6 +211,9 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
     private Button btnNewUser;
 
     @FXML
+    private ProgressIndicator piSearch;
+
+    @FXML
     private Button btnSearchBenutzer;
 
     @FXML
@@ -241,6 +260,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/BenutzerdatenDetailView.fxml"));
             BenutzerdatenDetailViewController controller = new BenutzerdatenDetailViewController();
+            controller.setObserver(BenutzerdatenListeViewController.this);
             loader.setController(controller);
             Node node = loader.load();
             ViewNavigation.push(1, node);
@@ -259,13 +279,30 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
     }
 
     @FXML
-    void sucheStartenButtonTapped(ActionEvent event) {
+    void sucheStartenButtonTapped(ActionEvent event) { //TODO: Asynchrones Laden von Tabellen ermöglichen
         logger.info("Search initiated...");
-        int searchID = 0;
-        if(!txtBenutzerID.getText().equals(""))
-            searchID = Integer.parseInt(txtBenutzerID.getText());
-        foundEntities.setAll(b_dao.filterBenutzer(searchID, txtBenutzerKennung.getText(), txtBenutzerVorname.getText(), txtBenutzerNachname.getText()));
-        logger.info("Search finished!");
+        piSearch.setVisible(true);
+
+        CompletableFuture.supplyAsync(() -> {
+            int searchID = 0;
+            if (!txtBenutzerID.getText().equals(""))
+                searchID = Integer.parseInt(txtBenutzerID.getText());
+
+            return b_dao.filterBenutzer(searchID, txtBenutzerKennung.getText(), txtBenutzerVorname.getText(), txtBenutzerNachname.getText());
+        }).thenAcceptAsync(result -> {
+            Platform.runLater(() -> {
+                foundEntities.setAll(result);
+                piSearch.setVisible(false);
+                logger.info("Search finished!");
+            });
+        }).exceptionally(exception -> {
+            Platform.runLater(() -> {
+                logger.error("Fehler bei der Suche", exception);
+                piSearch.setVisible(false);
+            });
+            return null;
+        });
+
     }
 
 }

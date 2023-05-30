@@ -12,7 +12,8 @@ public class BenutzerEntity implements Serializable {
 
     public BenutzerEntity() {}
 
-    public BenutzerEntity(String kennung, String nachname, String vorname, boolean administrator) {
+    public BenutzerEntity(int ID, String kennung, String nachname, String vorname, boolean administrator) {
+        this.ID = ID;
         this.kennung = kennung;
         this.nachname = nachname;
         this.vorname = vorname;

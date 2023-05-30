@@ -1,5 +1,7 @@
 package com.golkov.inventv.controller.listcontroller;
 
+import com.golkov.inventv.AlertTexts;
+import com.golkov.inventv.Globals;
 import com.golkov.inventv.Main;
 import com.golkov.inventv.controller.detailcontroller.AusleihenDetailViewController;
 import com.golkov.inventv.controller.detailcontroller.TypAblageortDetailViewController;
@@ -141,15 +143,14 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
                     int error = a_dao.updateEntity(ausleihe, newEntity);
 
                     if (error == 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Datenbankfehler");
-                        alert.setContentText("Bei der Entfernung der Ausleihe ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
+                        Globals.showAlert(
+                                Alert.AlertType.ERROR,
+                                String.format(AlertTexts.GENERIC_ERROR_HEADER, "Entfernen"),
+                                "Datenbankfehler",
+                                String.format(AlertTexts.GENERIC_ERROR_MESSAGE, "Entfernung", "Ausleiheneintrags"),
+                                alert -> alert.close(),
+                                ButtonType.OK
+                        );
                     }else{
                         lstAusleiheEntities.getItems().set(getIndex(), newEntity);
                     }

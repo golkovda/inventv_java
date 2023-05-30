@@ -5,6 +5,14 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Typ")
 public class TypEntity implements TAEntity{
+    public TypEntity(int ID, String bezeichnung) {
+        this.ID = ID;
+        this.bezeichnung = bezeichnung;
+    }
+
+    public TypEntity() {
+
+    }
 
     //region getters and setters
 

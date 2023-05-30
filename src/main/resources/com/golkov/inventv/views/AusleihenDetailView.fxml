@@ -7,23 +7,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.golkov.inventv.controller.detailcontroller.AusleihenDetailViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="btnSaveAusleihe" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="351.0" layoutY="71.0" mnemonicParsing="false" onAction="#speichernButtonTapped" text="Speichern">
-         <font>
-            <Font name="Segoe UI" size="24.0" />
-         </font>
-      </Button>
-      <ComboBox fx:id="cbAusleiheBenutzer" layoutX="332.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="45.0" prefWidth="155.0" promptText="Benutzer auswählen">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </ComboBox>
       <ComboBox fx:id="cbAusleiheObjekt" layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="45.0" prefWidth="155.0" promptText="Objekt auswählen">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </ComboBox>
+      <ComboBox fx:id="cbAusleiheBenutzer" layoutX="332.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="45.0" prefWidth="155.0" promptText="Benutzer auswählen">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ComboBox>
+      <Button fx:id="btnSaveAusleihe" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="351.0" layoutY="71.0" mnemonicParsing="false" onAction="#speichernButtonTapped" text="Speichern">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </Button>
       <Label layoutX="184.0" layoutY="22.0" text="ausleihen an">
          <font>
             <Font name="Segoe UI" size="24.0" />

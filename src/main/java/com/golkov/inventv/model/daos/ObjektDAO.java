@@ -70,15 +70,16 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity> {
     public ObservableList<ObjektEntity> filterObjekt(int id, Integer invnr, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis, TypEntity typ, AblageortEntity ablageort) {
         logger.info("Getting ObjektEntities from Database and filtering for: inv.nr.=" + invnr.toString() + ", hersteller=" + hersteller + ", modell=" + modell + ", kaufdatum=" + kaufdatum.toString() + ", einzelpreis=" + einzelpreis + ", typ=" + typ.getBezeichnung() + ", ablageort=" + ablageort.getBezeichnung());
         ObservableList<ObjektEntity> objektList = FXCollections.observableArrayList();
-        Session session = sessionFactory.openSession();
-        Transaction tx = null;
+        Session session = sessionFactory.openSession(); //Oeffne Bindung zur Datenbank
+        Transaction tx = null; //Initiiere Transaction-Objekt
         try {
-            tx = session.beginTransaction();
-            CriteriaBuilder builder = session.getCriteriaBuilder();
-            CriteriaQuery<ObjektEntity> query = builder.createQuery(ObjektEntity.class);
-            Root<ObjektEntity> root = query.from(ObjektEntity.class);
+            tx = session.beginTransaction(); //Beginne eine neue Transaktion
+            CriteriaBuilder builder = session.getCriteriaBuilder(); //Initiiere neuen CriteriaBuilder
+            CriteriaQuery<ObjektEntity> query = builder.createQuery(ObjektEntity.class); //Initiiere eine Anfragenkette mit erwartetem Typ ObjektEntity
+            Root<ObjektEntity> root = query.from(ObjektEntity.class); //Definiere Entitaet der Abfrage (Typ ObjektEntity)
 
-            List<Predicate> predicates = new ArrayList<>();
+            List<Predicate> predicates = new ArrayList<>(); //Neue Liste der Anfragen
+            //Hinzufügen von Anfragefiltern unter Prüfung von Nullbedingungen
             if (invnr != 0) {
                 predicates.add(builder.equal(root.get("inventarnummer"), invnr));
             }
@@ -104,16 +105,16 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity> {
                 predicates.add(builder.equal(root.get("ID"), id));
             }
 
-            query.where(builder.and(predicates.toArray(new Predicate[0])));
-            List<ObjektEntity> resultList = session.createQuery(query).getResultList();
-            objektList.addAll(resultList);
-            tx.commit();
-        } catch (HibernateException e) {
+            query.where(builder.and(predicates.toArray(new Predicate[0]))); //Erstelle Anfrage auf Basis der definierten Anfragefiltern
+            List<ObjektEntity> resultList = session.createQuery(query).getResultList(); //Sende Anfrage an Datenbank und lade Resultate in resultList
+            objektList.addAll(resultList); //Lade Resultate in Rueckgabeliste
+            tx.commit(); //Schliesse Transaktion ab
+        } catch (HibernateException e) { //Abfangen von Fehlern
             logger.error("Exception occured while filtering data: " + Arrays.toString(e.getStackTrace()));
             if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
-            session.close();
+            session.close(); //Beende aktuelle Session
         }
         logger.info(objektList.stream().count() + " Element(s) found");
         return objektList;
@@ -195,8 +196,9 @@ public class ObjektDAO implements IEntityDAO<ObjektEntity> {
             transaction = session.beginTransaction();
             AusleiheDAO a_dao = new AusleiheDAO();
 
-            if (a_dao.getAusleihenByObjekt(entityToRemove).stream().anyMatch(x -> !x.isAbgegeben()))
-                return 1;
+            //Redundant, da bereits in der Liste geprüft wird, ob das betroffene Objekt ausgeliehen ist -> Fall tritt nie ein, weil Knopf dann nicht gedrückt werden kann
+            //if (a_dao.getAusleihenByObjekt(entityToRemove).stream().anyMatch(x -> !x.isAbgegeben()))
+                //return 1;
 
             session.remove(entityToRemove);
             transaction.commit();

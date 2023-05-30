@@ -28,15 +28,6 @@
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="360.0" vgrow="ALWAYS" />
    </rowConstraints>
    <children>
-      <TableView fx:id="lstOffeneBenutzerAusleihen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="966.0" GridPane.rowIndex="4">
-         <columns>
-            <TableColumn fx:id="tcAusleiheObjektInventarnummer" prefWidth="75.0" text="Inv. Nr." />
-            <TableColumn fx:id="tcAusleiheObjektTyp" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Typ" />
-            <TableColumn fx:id="tcAusleiheObjektHersteller" editable="false" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="Hersteller" />
-            <TableColumn fx:id="tcAusleiheObjektModell" editable="false" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" text="Modell" />
-            <TableColumn fx:id="txAusleiheObjektAusgeliehenAm" editable="false" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="150.0" text="Ausgeliehen am" />
-         </columns>
-      </TableView>
       <GridPane maxWidth="1.7976931348623157E308" prefWidth="981.0" GridPane.rowIndex="2">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="428.0" prefWidth="428.0" />
@@ -58,6 +49,30 @@
                   <RowConstraints maxHeight="37.0" minHeight="37.0" prefHeight="37.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
+                  <TextField fx:id="txtBenutzerKennung" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="1.0" left="10.0" top="1.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtBenutzerVorname" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="1.0" left="10.0" top="1.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtBenutzerNachname" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="1.0" left="10.0" top="1.0" />
+                     </GridPane.margin>
+                  </TextField>
                   <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="BenutzerID:">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
@@ -86,30 +101,6 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtBenutzerVorname" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="1.0" left="10.0" top="1.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <TextField fx:id="txtBenutzerNachname" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="1.0" left="10.0" top="1.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <TextField fx:id="txtBenutzerKennung" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="1.0" left="10.0" top="1.0" />
-                     </GridPane.margin>
-                  </TextField>
                </children>
                <GridPane.margin>
                   <Insets />
@@ -124,14 +115,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="btnSaveBenutzer" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#speichernButtonTapped" text="Speichern" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
-                     <font>
-                        <Font name="Segoe UI" size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" right="10.0" />
-                     </GridPane.margin>
-                  </Button>
                   <GridPane maxWidth="1.7976931348623157E308" prefWidth="469.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
@@ -143,21 +126,6 @@
                         <RowConstraints maxHeight="37.0" minHeight="37.0" prefHeight="37.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Telefon:">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="E-Mail:" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Administrator?" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                        </Label>
                         <TextField fx:id="txtBenutzerTelefon" maxHeight="1.7976931348623157E308" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" promptText="Keine Angabe" GridPane.columnIndex="1">
                            <font>
                               <Font name="Segoe UI" size="18.0" />
@@ -182,8 +150,31 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </CheckBox>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Telefon:">
+                           <font>
+                              <Font name="Segoe UI" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="E-Mail:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Administrator?" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Segoe UI" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
+                  <Button fx:id="btnSaveBenutzer" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#speichernButtonTapped" text="Speichern" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -194,6 +185,15 @@
             <Insets top="10.0" />
          </GridPane.margin>
       </GridPane>
+      <TableView fx:id="lstOffeneBenutzerAusleihen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="966.0" GridPane.rowIndex="4">
+         <columns>
+            <TableColumn fx:id="tcAusleiheObjektInventarnummer" prefWidth="75.0" text="Inv. Nr." />
+            <TableColumn fx:id="tcAusleiheObjektTyp" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Typ" />
+            <TableColumn fx:id="tcAusleiheObjektHersteller" editable="false" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="Hersteller" />
+            <TableColumn fx:id="tcAusleiheObjektModell" editable="false" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" text="Modell" />
+            <TableColumn fx:id="txAusleiheObjektAusgeliehenAm" editable="false" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="150.0" text="Ausgeliehen am" />
+         </columns>
+      </TableView>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-style: hidden hidden solid hidden;" GridPane.rowIndex="1">
          <children>
             <Button fx:id="btnZurueck" layoutX="5.0" layoutY="6.0" onAction="#zurueckButtonTapped">

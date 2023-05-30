@@ -1,0 +1,38 @@
+#divNavBar .button{
+      -fx-background-color: #d9d9d9;
+      -fx-font-size: 24px;
+}
+
+#divNavBar .button:hover {
+      -fx-background-color: lightskyblue;
+      -fx-font-size: 24px;
+}
+
+#divNavBar .button:focused {
+      -fx-background-color: lightskyblue;
+      -fx-font-size: 24px;
+}
+
+#divNavBar .button:pressed{
+      -fx-background-color: deepskyblue;
+      -fx-font-size: 24px;
+}
+
+#divNavBar #btnInfo{
+      -fx-background-color:  lightcoral;
+}
+
+#divNavBar #btnInfo:hover {
+      -fx-background-color: coral;
+      -fx-font-size: 24px;
+}
+
+#divNavBar #btnInfo:focused {
+      -fx-background-color: coral;
+      -fx-font-size: 24px;
+}
+
+#divNavBar #btnInfo:pressed {
+      -fx-background-color: orangered;
+      -fx-font-size: 24px;
+}

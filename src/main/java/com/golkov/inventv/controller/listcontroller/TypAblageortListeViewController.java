@@ -1,5 +1,7 @@
 package com.golkov.inventv.controller.listcontroller;
 
+import com.golkov.inventv.AlertTexts;
+import com.golkov.inventv.Globals;
 import com.golkov.inventv.Main;
 import com.golkov.inventv.ViewNavigation;
 import com.golkov.inventv.controller.NavigationViewController;
@@ -12,6 +14,7 @@ import com.golkov.inventv.model.entities.AblageortEntity;
 import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.TAEntity;
 import com.golkov.inventv.model.entities.TypEntity;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -119,34 +122,39 @@ public class TypAblageortListeViewController implements Initializable {
                     //lstEntities.getItems().set(getIndex(), t_dao.getTypById(typ.getID()));
                 });
 
+                BooleanBinding isEntfernenDisabled = new BooleanBinding() {
+                    {
+                        super.bind(emptyProperty()); // Bindung an den aktuellen Eintrag
+                    }
+
+                    @Override
+                    protected boolean computeValue() {
+                        if(isEmpty())
+                            return true;
+                        TAEntity typ = getTableRow().getItem();
+                        return o_dao.getAnzahlObjekteByTyp((TypEntity) typ) > 0; // true, wenn deaktiviert, false, wenn aktiviert
+                    }
+                };
+
                 deleteButton.setOnAction(event -> {
                     TypEntity typ = (TypEntity) getTableView().getItems().get(getIndex());
                     int error = t_dao.removeEntity(typ);
 
-                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Typ kann nicht entfernt werden");
-                        alert.setContentText("Beim Entfernen des Typs ist ein Fehler aufgetreten: Es hängen noch Objekte vom Typ '" + typ.getBezeichnung() + "' ab. Bitte stellen Sie sicher, dass keine Objekte des genannten Typs existieren und versuchen Sie es erneut.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
-                    } else if (error == 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Datenbankfehler");
-                        alert.setContentText("Bei der Entfernung des Typs ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
+                    if (error == 2) {
+                        Globals.showAlert(
+                                Alert.AlertType.ERROR,
+                                String.format(AlertTexts.GENERIC_ERROR_HEADER, "Entfernen"),
+                                "Datenbankfehler",
+                                String.format(AlertTexts.GENERIC_ERROR_MESSAGE, "Entfernung", "Ablageorts"),
+                                alert -> alert.close(),
+                                ButtonType.OK
+                        );
                     } else {
                         lstEntities.getItems().remove(typ);
                     }
                 });
+
+                deleteButton.disableProperty().bind(isEntfernenDisabled);
             }
 
             @Override
@@ -203,34 +211,38 @@ public class TypAblageortListeViewController implements Initializable {
                     lstEntities.getItems().set(getIndex(), ao_dao.getAblageortById(aort.getID()));
                 });
 
+                BooleanBinding isEntfernenDisabled = new BooleanBinding() {
+                    {
+                        super.bind(emptyProperty()); // Bindung an den aktuellen Eintrag
+                    }
+
+                    @Override
+                    protected boolean computeValue() {
+                        if(isEmpty())
+                            return true;
+                        TAEntity typ = getTableRow().getItem();
+                        return o_dao.getAnzahlObjekteByAblageort((AblageortEntity) typ) > 0; // true, wenn deaktiviert, false, wenn aktiviert
+                    }
+                };
+
                 deleteButton.setOnAction(event -> {
                     AblageortEntity aort = (AblageortEntity) getTableView().getItems().get(getIndex());
                     int error = ao_dao.removeEntity(aort);
 
-                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Ablageort kann nicht entfernt werden");
-                        alert.setContentText("Beim Entfernen des Ablageorts ist ein Fehler aufgetreten: Es liegen noch Objekte im Ablageort '" + aort.getBezeichnung() + "' ab. Bitte stellen Sie sicher, dass keine Objekte am Ablageort liegen und versuchen Sie es erneut.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
-                    } else if (error == 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Datenbankfehler");
-                        alert.setContentText("Bei der Entfernung des Ablageorts ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
+                    if (error == 2) {
+                        Globals.showAlert(
+                                Alert.AlertType.ERROR,
+                                String.format(AlertTexts.GENERIC_ERROR_HEADER, "Entfernen"),
+                                "Datenbankfehler",
+                                String.format(AlertTexts.GENERIC_ERROR_MESSAGE, "Entfernung", "Ablageorts"),
+                                alert -> alert.close(),
+                                ButtonType.OK
+                        );
                     } else {
                         lstEntities.getItems().remove(aort);
                     }
                 });
+                deleteButton.disableProperty().bind(isEntfernenDisabled);
             }
 
             @Override

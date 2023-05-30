@@ -1,12 +1,21 @@
 package com.golkov.inventv.model.entities;
 
 import jakarta.persistence.*;
-import java.security.Timestamp;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "Ausleihe")
 public class AusleihEntity {
+
+    public AusleihEntity(int ID, BenutzerEntity benutzer, ObjektEntity objekt, LocalDate ausleihdatum, boolean abgegeben) {
+        this.ID = ID;
+        this.benutzer = benutzer;
+        this.objekt = objekt;
+        this.ausleihdatum = ausleihdatum;
+        this.abgegeben = abgegeben;
+    }
+
+    public AusleihEntity() {}
 
     //region getters and setters
     public int getID() {

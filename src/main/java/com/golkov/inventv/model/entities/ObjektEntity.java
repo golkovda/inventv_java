@@ -10,6 +10,18 @@ import java.time.LocalDate;
 @Entity
 @Table(name="Objekt")
 public class ObjektEntity {
+    public ObjektEntity(int ID, TypEntity typ, AblageortEntity ablageort, int inventarnummer, String hersteller, String modell, LocalDate kaufdatum, float einzelpreis) {
+        this.ID = ID;
+        this.typ = typ;
+        this.ablageort = ablageort;
+        this.inventarnummer = inventarnummer;
+        this.hersteller = hersteller;
+        this.modell = modell;
+        this.kaufdatum = kaufdatum;
+        this.einzelpreis = einzelpreis;
+    }
+
+    public ObjektEntity() {}
 
     //region getters and setters
 

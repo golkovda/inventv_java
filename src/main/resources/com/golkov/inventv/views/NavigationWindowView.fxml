@@ -24,15 +24,28 @@
     <children>
         <GridPane minHeight="80.0" minWidth="300.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="108.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="145.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="47.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Verbunden mit">
+            <Button fx:id="btnChangeConnection" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#changeConnectionButtonTapped" GridPane.columnIndex="2" GridPane.rowSpan="2">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../com.golkov.inventv.images/connection.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+                <Label alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="109.0" text="Verbunden mit">
                     <padding>
                         <Insets right="5.0" />
                     </padding>
@@ -75,7 +88,7 @@
                 </Label>
             </children>
         </GridPane>
-        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="300.0" style="-fx-border-style: solid none none none;" GridPane.rowIndex="1">
+        <GridPane fx:id="divNavBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="300.0" style="-fx-border-style: solid none none none;" GridPane.rowIndex="1">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -90,7 +103,7 @@
                 <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnStartseite" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#startseiteButtonTapped" stylesheets="@../../../../com.golkov.inventv.css/buttonstyles.css" text="Startseite" textAlignment="CENTER" GridPane.rowIndex="1">
+                <Button fx:id="btnStartseite" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#startseiteButtonTapped" text="Startseite" textAlignment="CENTER" GridPane.rowIndex="1">
                     <font>
                         <Font name="Segoe UI" size="24.0" />
                     </font>
@@ -98,7 +111,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btnBenutzerverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#benutzerverwaltungButtonTapped" style="-fx-background-color: #d9d9d9;" text="Benutzer" textAlignment="CENTER" GridPane.rowIndex="2">
+                <Button fx:id="btnBenutzerverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#benutzerverwaltungButtonTapped" text="Benutzer" textAlignment="CENTER" GridPane.rowIndex="2">
                     <font>
                         <Font name="Segoe UI" size="24.0" />
                     </font>
@@ -106,7 +119,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btnObjektverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#objektverwaltungButtonTapped" style="-fx-background-color: #d9d9d9;" text="Objekte" textAlignment="CENTER" GridPane.rowIndex="3">
+                <Button fx:id="btnObjektverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#objektverwaltungButtonTapped" text="Objekte" textAlignment="CENTER" GridPane.rowIndex="3">
                     <font>
                         <Font name="Segoe UI" size="24.0" />
                     </font>
@@ -114,7 +127,23 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btnAusleihenverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ausleihenverwaltungButtonTapped" style="-fx-background-color: #d9d9d9;" text="Ausleihen" textAlignment="CENTER" GridPane.rowIndex="4">
+                <Button fx:id="btnAusleihenverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ausleihenverwaltungButtonTapped" text="Ausleihen" textAlignment="CENTER" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Segoe UI" size="24.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            <Button fx:id="btnTypAblageortverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#typablageortverwaltungButtonTapped" text="Typen und Ablageorte" textAlignment="CENTER" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+                <Button fx:id="btnInfo" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#infoButtonTapped" text="Info" textAlignment="CENTER" GridPane.rowIndex="7">
                     <font>
                         <Font name="Segoe UI" size="24.0" />
                     </font>
@@ -127,22 +156,6 @@
                         <Image url="@../../../../com.golkov.inventv.images/Placeholder.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="btnInfo" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#infoButtonTapped" style="-fx-background-color: #ccd9ff; -fx-border-radius: 0;" text="Info" textAlignment="CENTER" GridPane.rowIndex="7">
-                    <font>
-                        <Font name="Segoe UI" size="24.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-            <Button fx:id="btnTypAblageortverwaltung" alignment="CENTER_RIGHT" cache="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#typablageortverwaltungButtonTapped" style="-fx-background-color: #d9d9d9;" text="Typen und Ablageorte" textAlignment="CENTER" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Segoe UI" size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             </children>
         </GridPane>
         <AnchorPane fx:id="vpAnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid hidden hidden solid; -fx-background-color: #d0d0d0;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />

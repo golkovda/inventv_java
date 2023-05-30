@@ -1,6 +1,7 @@
 package com.golkov.inventv.controller.detailcontroller;
 
 import com.golkov.inventv.ViewNavigation;
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.controller.listcontroller.BenutzerdatenListeViewController;
 import com.golkov.inventv.model.daos.AusleiheDAO;
@@ -153,6 +154,12 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
         }
     }
 
+    private DataObserver dataObserver;
+
+    public void setObserver(DataObserver observer) {
+        this.dataObserver = observer;
+    }
+
     private BooleanProperty saveButtonDisabled = new SimpleBooleanProperty(true);
 
     @FXML
@@ -246,6 +253,9 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
                 }
             });
         } else {
+            if (dataObserver != null) {
+                dataObserver.updateData(); // Aktualisierung der Daten anfordern
+            }
             zurueckButtonTapped(new ActionEvent());
         }
     }

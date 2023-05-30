@@ -11,7 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -25,10 +27,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static com.golkov.inventv.InventVPreferences.getShortServerUrl;
-import static com.golkov.inventv.InventVPreferences.getServerUsername;
+import static com.golkov.inventv.InventVPreferences.*;
 
 
 public class NavigationViewController implements Initializable {
@@ -44,6 +46,7 @@ public class NavigationViewController implements Initializable {
         lblConnectionAdress.setText(getShortServerUrl());
         lblUsername.setText(InventVPreferences.getUsername());
         Globals.loadFreshPane(vpAnchorPane, "views/StartseiteView.fxml", 0);
+        btnStartseite.setStyle("-fx-font-weight: bold;");
         instance = this;
     }
 
@@ -62,6 +65,9 @@ public class NavigationViewController implements Initializable {
 
     @FXML
     private Button btnInfo;
+
+    @FXML
+    private Button btnChangeConnection;
 
     @FXML
     private Button btnObjektverwaltung;
@@ -89,8 +95,33 @@ public class NavigationViewController implements Initializable {
     }
 
     @FXML
+    void changeConnectionButtonTapped(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Verbindung ändern");
+        alert.setHeaderText("Wollen Sie die aktuelle Verbindung trennen?");
+        alert.setContentText("Das Programm wird neu gestartet und Sie gelangen in das Verbindungsmenü.");
+
+        ButtonType jaButton = new ButtonType("Ja");
+        ButtonType neinButton = new ButtonType("Nein");
+
+        alert.getButtonTypes().setAll(jaButton, neinButton);
+
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == jaButton) {
+                alert.close();
+                saveServerCredentials("", "", "", "", false);
+                Main.restartApplication();
+            } else if (buttonType == neinButton) {
+                alert.close();
+            }
+        });
+    }
+
+    @FXML
     void typablageortverwaltungButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Typ/Ablageortverwaltung");
+        resetAllButtonFonts();
+        btnTypAblageortverwaltung.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Verwaltung: Typen und Ablageorte");
         if (ViewNavigation.getSize(4) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/TypAblageortListeView.fxml", 4);
@@ -101,6 +132,8 @@ public class NavigationViewController implements Initializable {
     @FXML
     void ausleihenverwaltungButtonTapped(ActionEvent event) throws IOException {
         logger.info("Knopf gedrückt: Ausleihenverwaltung");
+        resetAllButtonFonts();
+        btnAusleihenverwaltung.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Verwaltung: Ausleihen");
         if (ViewNavigation.getSize(3) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/AusleihenListeView.fxml", 3);
@@ -113,6 +146,8 @@ public class NavigationViewController implements Initializable {
     @FXML
     void benutzerverwaltungButtonTapped(ActionEvent event) throws IOException {
         logger.info("Knopf gedrückt: Benutzerverwaltung");
+        resetAllButtonFonts();
+        btnBenutzerverwaltung.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Verwaltung: Benutzer");
         if (ViewNavigation.getSize(1) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/BenutzerdatenListeView.fxml", 1);
@@ -123,6 +158,8 @@ public class NavigationViewController implements Initializable {
     @FXML
     void infoButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Info");
+        resetAllButtonFonts();
+        btnInfo.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Über das Programm");
         //TODO: InfoView.fxml erstellen und Code ergänzen
     }
@@ -130,6 +167,8 @@ public class NavigationViewController implements Initializable {
     @FXML
     void objektverwaltungButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Objektverwaltung");
+        resetAllButtonFonts();
+        btnObjektverwaltung.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Verwaltung: Objekte");
         if (ViewNavigation.getSize(2) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/ObjektdatenListeView.fxml", 2);
@@ -140,10 +179,21 @@ public class NavigationViewController implements Initializable {
     @FXML
     void startseiteButtonTapped(ActionEvent event) {
         logger.info("Knopf gedrückt: Startseite");
+        resetAllButtonFonts();
+        btnStartseite.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Startseite");
         if (ViewNavigation.getSize(0) == 0)
             Globals.loadFreshPane(vpAnchorPane, "views/StartseiteView.fxml", 0);
         else
             Globals.loadExistingPane(vpAnchorPane, 0);
+    }
+
+    private void resetAllButtonFonts(){
+        btnBenutzerverwaltung.setStyle("-fx-font-weight: normal;");
+        btnAusleihenverwaltung.setStyle("-fx-font-weight: normal;");
+        btnObjektverwaltung.setStyle("-fx-font-weight: normal;");
+        btnInfo.setStyle("-fx-font-weight: normal;");
+        btnStartseite.setStyle("-fx-font-weight: normal;");
+        btnTypAblageortverwaltung.setStyle("-fx-font-weight: normal;");
     }
 }

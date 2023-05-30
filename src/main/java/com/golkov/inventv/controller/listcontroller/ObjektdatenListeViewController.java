@@ -1,15 +1,15 @@
 package com.golkov.inventv.controller.listcontroller;
 
+import com.golkov.inventv.AlertTexts;
+import com.golkov.inventv.Globals;
 import com.golkov.inventv.Main;
 import com.golkov.inventv.ViewNavigation;
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
 import com.golkov.inventv.controller.detailcontroller.ObjektdatenDetailViewController;
 import com.golkov.inventv.model.daos.*;
-import com.golkov.inventv.model.entities.AblageortEntity;
-import com.golkov.inventv.model.entities.BenutzerEntity;
-import com.golkov.inventv.model.entities.ObjektEntity;
-import com.golkov.inventv.model.entities.TypEntity;
+import com.golkov.inventv.model.entities.*;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
@@ -133,37 +133,40 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
                     //lstObjektEntities.getItems().set(getIndex(), o_dao.getObjektById(objekt.getID()));
                 });
 
+                BooleanBinding isEntfernenDisabled = new BooleanBinding() {
+                    {
+                        super.bind(emptyProperty()); // Bindung an den aktuellen Eintrag
+                    }
+
+                    @Override
+                    protected boolean computeValue() {
+                        if(isEmpty())
+                            return true;
+                        ObjektEntity objekt = getTableRow().getItem();
+                        return o_dao.istAusgeliehen(objekt); // true, wenn deaktiviert, false, wenn aktiviert
+                    }
+                };
+
                 deleteButton.setOnAction(event -> {
                     ObjektEntity objekt = getTableView().getItems().get(getIndex());
                     int error = o_dao.removeEntity(objekt);
 
-                    if (error == 1) { //TODO: Alerts in separate Klasse auslagern
-                        AusleiheDAO a_dao = new AusleiheDAO();
-                        BenutzerEntity ausleihender = a_dao.getAusleiheByObjekt(objekt, 0).getBenutzer();
+                    if (error == 2) {
 
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Objekt kann nicht entfernt werden");
-                        alert.setContentText("Beim Entfernen des Objektes ist ein Fehler aufgetreten: Das Objekt mit der Inventarnummer '" + objekt.getInventarnummer() + "' wird aktuell noch vom Benutzer '"+ausleihender.getNachname() + ", "+ausleihender.getVorname()+"'ausgeliehen. Bitte stellen Sie sicher, dass der betroffene Benutzer das Objekt zurückgibt und versuchen Sie es erneut.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
-                    } else if (error == 2) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Fehler beim Entfernen");
-                        alert.setHeaderText("Datenbankfehler");
-                        alert.setContentText("Bei der Entfernung des Objekts ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Administrator.");
-                        alert.showAndWait().ifPresent(rs -> {
-                            if (rs == ButtonType.OK) {
-                                alert.close();
-                            }
-                        });
+                        Globals.showAlert(
+                                Alert.AlertType.ERROR,
+                                String.format(AlertTexts.GENERIC_ERROR_HEADER, "Entfernen"),
+                                "Datenbankfehler",
+                                String.format(AlertTexts.GENERIC_ERROR_MESSAGE, "Entfernung", "Objekts"),
+                                alert -> alert.close(),
+                                ButtonType.OK
+                        );
                     } else {
-                        sucheStartenButtonTapped(new ActionEvent()); //Neuladen der Liste
+                        lstObjektEntities.getItems().remove(objekt);
                     }
                 });
+
+                deleteButton.disableProperty().bind(isEntfernenDisabled);
             }
 
             @Override

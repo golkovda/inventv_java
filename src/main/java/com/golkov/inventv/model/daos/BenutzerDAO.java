@@ -27,12 +27,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
-    private static final Logger logger = LogManager.getLogger(NavigationViewController.class);
+    private static Logger logger = LogManager.getLogger(NavigationViewController.class);
 
-    private final SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
+
+    private AusleiheDAO a_dao = new AusleiheDAO();
+
 
     public BenutzerDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
+    }
+
+    public void setAusleiheDAO(AusleiheDAO newDAO){
+        a_dao = newDAO;
+    }
+
+    public void setSessionFactory(SessionFactory newSessionFactory){
+        sessionFactory = newSessionFactory;
+    }
+
+    public void setLogger(Logger logger){
+        BenutzerDAO.logger = logger;
     }
 
     public BenutzerEntity getEntityByKennung(String kennung){
@@ -40,7 +55,6 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
     }
 
     public boolean hatOffeneAusleihen(BenutzerEntity benutzer) {
-        AusleiheDAO a_dao = new AusleiheDAO();
         ObjektEntity null_objekt = new ObjektEntity();
         null_objekt.setID(-1);
         ObservableList<AusleihEntity> ausleihen = a_dao.filterAusleihe(benutzer, null_objekt, LocalDate.of(1900, 1, 1));
@@ -165,10 +179,10 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            AusleiheDAO a_dao = new AusleiheDAO();
 
-            if(a_dao.hatOffeneAusleihen(entityToRemove))
-                return 1;
+            //Redundant: Siehe ObjektDAO.java an selber Stelle
+            //if(a_dao.hatOffeneAusleihen(entityToRemove))
+                //return 1;
 
             session.remove(entityToRemove);
             transaction.commit();

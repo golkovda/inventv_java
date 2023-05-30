@@ -6,6 +6,13 @@ import jakarta.persistence.*;
 @Table(name="Ablageort")
 public class AblageortEntity implements TAEntity{
 
+    public AblageortEntity(int ID, String bezeichnung) {
+        this.ID = ID;
+        this.bezeichnung = bezeichnung;
+    }
+
+    public AblageortEntity() {}
+
     //region getters and setters
 
     public int getID() {

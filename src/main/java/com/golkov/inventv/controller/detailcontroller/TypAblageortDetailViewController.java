@@ -1,5 +1,6 @@
 package com.golkov.inventv.controller.detailcontroller;
 
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.model.daos.AblageortDAO;
 import com.golkov.inventv.model.daos.TypDAO;
 import com.golkov.inventv.model.entities.AblageortEntity;
@@ -74,6 +75,12 @@ public class TypAblageortDetailViewController implements Initializable {
     @FXML
     private TextField txtBezeichnung;
 
+    private DataObserver dataObserver;
+
+    public void setObserver(DataObserver observer) {
+        this.dataObserver = observer;
+    }
+
     @FXML
     void speichernButtonTapped(ActionEvent event) {
         int error = 2;
@@ -131,6 +138,9 @@ public class TypAblageortDetailViewController implements Initializable {
                 }
             });
         }else{
+            if (dataObserver != null) {
+                dataObserver.updateData(); // Aktualisierung der Daten anfordern
+            }
             stage.close();
         }
     }

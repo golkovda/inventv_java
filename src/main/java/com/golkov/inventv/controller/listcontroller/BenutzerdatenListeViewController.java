@@ -9,16 +9,10 @@ import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.entities.BenutzerEntity;
-import com.golkov.inventv.model.entities.ObjektEntity;
-import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,30 +26,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
-
-import static com.golkov.inventv.Globals.showAlert;
 
 public class BenutzerdatenListeViewController extends ListeViewControllerBase<BenutzerEntity> implements Initializable, DataObserver {
 
     private static final Logger logger = LogManager.getLogger(BenutzerdatenListeViewController.class);
     BenutzerDAO b_dao = new BenutzerDAO();
 
-    public BenutzerdatenListeViewController(){
+    public BenutzerdatenListeViewController() {
         super();
         foundEntities = FXCollections.observableArrayList();
     }
 
-    public void updateData(){
+    public void updateData() {
         sucheStartenButtonTapped(new ActionEvent());
     }
 
@@ -67,19 +55,19 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
         tcBenutzerKennung.setCellValueFactory(new PropertyValueFactory<>("kennung"));
         tcBenutzerNachname.setCellValueFactory(new PropertyValueFactory<>("nachname"));
         tcBenutzerVorname.setCellValueFactory(new PropertyValueFactory<>("vorname"));
-        tcBenutzerAktion.setCellFactory(column -> new TableCell<BenutzerEntity, Void>(){
+        tcBenutzerAktion.setCellFactory(column -> new TableCell<BenutzerEntity, Void>() {
             private final Button editButton = new Button();
             private final Button deleteButton = new Button();
 
             {
                 // Setze das Bild für den Edit-Button
-                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/edit.png")));
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/edit.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 editButton.setGraphic(imageView);
 
                 // Setze das Bild für den Delete-Button
-                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/delete.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 deleteButton.setGraphic(imageView);
@@ -116,7 +104,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
 
                     @Override
                     protected boolean computeValue() {
-                        if(isEmpty())
+                        if (isEmpty())
                             return true;
                         BenutzerEntity benutzer = getTableRow().getItem();
                         return b_dao.hatOffeneAusleihen(benutzer) || benutzer.getID() == b_dao.getEntityByKennung(Globals.current_user).getID(); // true, wenn deaktiviert, false, wenn aktiviert
@@ -128,7 +116,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
                     int error = b_dao.removeEntity(benutzer);
 
                     if (error == 2) {
-                        showAlert(
+                        Globals.showAlert(
                                 Alert.AlertType.ERROR,
                                 String.format(AlertTexts.GENERIC_ERROR_HEADER, "Entfernen"),
                                 "Datenbankfehler",
@@ -187,7 +175,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
                 .and(txtBenutzerNachname.textProperty().isEmpty())
                 .and(txtBenutzerVorname.textProperty().isEmpty())
                 .and(txtBenutzerID.textProperty().isEmpty())
-                );
+        );
 
         //Algorithmus zum Verhindern von nicht-numerischen Eingaben im Feld txtBenutzerID
         txtBenutzerID.addEventFilter(KeyEvent.KEY_TYPED, event -> {
@@ -198,7 +186,7 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
 
         foundEntities.addListener((ListChangeListener.Change<? extends BenutzerEntity> c) -> {
             lblFoundBenutzerEntities.setText(String.valueOf(foundEntities.size()));
-        } );
+        });
 
         logger.info("Initialization complete");
     }
@@ -279,30 +267,15 @@ public class BenutzerdatenListeViewController extends ListeViewControllerBase<Be
     }
 
     @FXML
-    void sucheStartenButtonTapped(ActionEvent event) { //TODO: Asynchrones Laden von Tabellen ermöglichen
+    void sucheStartenButtonTapped(ActionEvent event) {
         logger.info("Search initiated...");
         piSearch.setVisible(true);
-
-        CompletableFuture.supplyAsync(() -> {
-            int searchID = 0;
-            if (!txtBenutzerID.getText().equals(""))
-                searchID = Integer.parseInt(txtBenutzerID.getText());
-
-            return b_dao.filterBenutzer(searchID, txtBenutzerKennung.getText(), txtBenutzerVorname.getText(), txtBenutzerNachname.getText());
-        }).thenAcceptAsync(result -> {
-            Platform.runLater(() -> {
-                foundEntities.setAll(result);
-                piSearch.setVisible(false);
-                logger.info("Search finished!");
-            });
-        }).exceptionally(exception -> {
-            Platform.runLater(() -> {
-                logger.error("Fehler bei der Suche", exception);
-                piSearch.setVisible(false);
-            });
-            return null;
-        });
-
+        int searchID = 0;
+        if(!txtBenutzerID.getText().equals(""))
+            searchID = Integer.parseInt(txtBenutzerID.getText());
+        foundEntities.setAll(b_dao.filterBenutzer(searchID, txtBenutzerKennung.getText(), txtBenutzerVorname.getText(), txtBenutzerNachname.getText()));
+        piSearch.setVisible(false);
+        logger.info("Search finished!");
     }
 
 }

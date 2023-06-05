@@ -4,8 +4,8 @@ import com.golkov.inventv.AlertTexts;
 import com.golkov.inventv.Globals;
 import com.golkov.inventv.Main;
 import com.golkov.inventv.ViewNavigation;
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.controller.NavigationViewController;
-import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
 import com.golkov.inventv.controller.detailcontroller.ObjektdatenDetailViewController;
 import com.golkov.inventv.model.daos.*;
 import com.golkov.inventv.model.entities.*;
@@ -33,11 +33,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class ObjektdatenListeViewController extends ListeViewControllerBase<ObjektEntity> implements Initializable{
+public class ObjektdatenListeViewController extends ListeViewControllerBase<ObjektEntity> implements Initializable, DataObserver {
 
     private static final Logger logger = LogManager.getLogger(ObjektdatenListeViewController.class);
     ObjektDAO o_dao = new ObjektDAO();
@@ -97,13 +96,13 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
 
             {
                 // Setze das Bild für den Edit-Button
-                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/edit.png")));
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/edit.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 editButton.setGraphic(imageView);
 
                 // Setze das Bild für den Delete-Button
-                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/delete.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 deleteButton.setGraphic(imageView);
@@ -115,6 +114,7 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
                     try {
                         FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/ObjektdatenDetailView.fxml"));
                         ObjektdatenDetailViewController controller = new ObjektdatenDetailViewController(objekt);
+                        controller.setObserver(ObjektdatenListeViewController.this);
                         loader.setController(controller);
                         Node node = loader.load();
                         ViewNavigation.push(2, node);
@@ -326,6 +326,7 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/ObjektdatenDetailView.fxml"));
             ObjektdatenDetailViewController controller = new ObjektdatenDetailViewController();
+            controller.setObserver(ObjektdatenListeViewController.this);
             loader.setController(controller);
             Node node = loader.load();
             ViewNavigation.push(2, node);
@@ -369,4 +370,8 @@ public class ObjektdatenListeViewController extends ListeViewControllerBase<Obje
         logger.info("Search finished!");
     }
 
+    @Override
+    public void updateData() {
+        sucheStartenButtonTapped(new ActionEvent());
+    }
 }

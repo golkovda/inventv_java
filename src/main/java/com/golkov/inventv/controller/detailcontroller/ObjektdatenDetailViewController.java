@@ -1,6 +1,7 @@
 package com.golkov.inventv.controller.detailcontroller;
 
 import com.golkov.inventv.ViewNavigation;
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.controller.NavigationViewController;
 import com.golkov.inventv.model.daos.*;
 import com.golkov.inventv.model.entities.*;
@@ -253,6 +254,12 @@ public class ObjektdatenDetailViewController extends DetailViewControllerBase<Ob
     @FXML
     private TextField txtModell;
 
+    private DataObserver dataObserver;
+
+    public void setObserver(DataObserver observer) {
+        this.dataObserver = observer;
+    }
+
 
     @FXML
     void speichernButtonTapped(ActionEvent event) {
@@ -298,6 +305,9 @@ public class ObjektdatenDetailViewController extends DetailViewControllerBase<Ob
                 }
             });
         } else {
+            if (dataObserver != null) {
+                dataObserver.updateData(); // Aktualisierung der Daten anfordern
+            }
             zurueckButtonTapped(new ActionEvent());
         }
     }

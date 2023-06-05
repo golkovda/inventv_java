@@ -11,6 +11,7 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.apache.logging.log4j.LogManager;
@@ -25,6 +26,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
     private static Logger logger = LogManager.getLogger(NavigationViewController.class);
@@ -65,11 +67,6 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
         }
         return false;
     }
-
-    public BenutzerEntity getBenutzerById(int id){
-        return filterBenutzer(id, "","","").get(0);
-    }
-
 
     public ObservableList<BenutzerEntity> filterBenutzer(Integer benutzerId, String kennung, String vorname, String nachname) {
         logger.info("Getting BenutzerEntities from Database and filtering for: ID=" + benutzerId.toString() + ", kennung=" + kennung + ", vorname=" + vorname + ", nachname=" + nachname);
@@ -136,6 +133,31 @@ public class BenutzerDAO implements IEntityDAO<BenutzerEntity> {
         logger.debug("Successfully loaded Benutzer-type Objects from Database");
         return benutzerList;
     }
+
+    public long getEntityCount() {
+        logger.info("Trying to get the count of all entries in 'Benutzer' table");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        long count = 0;
+        try {
+            transaction = session.beginTransaction();
+            Query<Long> query = session.createQuery("select count(*) from BenutzerEntity", Long.class);
+            count = query.uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
+            logger.error("Failed to get count of entries from Database: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        logger.debug("Successfully retrieved count of entries from 'Benutzer' table");
+        return count;
+    }
+
 
     @Override
     public int updateEntity(BenutzerEntity oldEntity, BenutzerEntity newEntity) { //0 = keine Fehler, 1 = Kennung fehler, 2 = sonstige

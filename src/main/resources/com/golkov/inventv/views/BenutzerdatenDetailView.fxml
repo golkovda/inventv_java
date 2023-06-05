@@ -201,7 +201,7 @@
                   <HBox alignment="CENTER_LEFT" spacing="5">
                      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../../../com.golkov.inventv.images/back.png" />
+                           <Image url="@../../../../images/back.png" />
                         </image>
                      </ImageView>
                      <Label text="Zurück">

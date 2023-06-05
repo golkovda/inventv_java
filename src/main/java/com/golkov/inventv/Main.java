@@ -2,14 +2,17 @@ package com.golkov.inventv;
 
 import com.golkov.inventv.controller.AdministratorValidierungViewController;
 import com.golkov.inventv.controller.ServerConnectionViewController;
+import com.golkov.inventv.model.DatabaseConnectivityChecker;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
 import org.apache.logging.log4j.Logger;
@@ -22,6 +25,7 @@ public class Main extends Application {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
     private static Stage primaryStage;
+    private static final DatabaseConnectivityChecker checker = new DatabaseConnectivityChecker();
 
     public interface ServerConnectedCallback {
         void onServerConnected() throws IOException;
@@ -33,6 +37,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        URL url = this.getClass().getResource("/images/logo.png");
+        stage.getIcons().add(new Image(url.openStream()));
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                checker.stopChecking();
+            }
+        });
         Main.primaryStage = stage;
         initializeWithServerInfo(primaryStage);
     }
@@ -70,6 +81,8 @@ public class Main extends Application {
             Parent root = fxmlLoader.load();
             ServerConnectionViewController controller = fxmlLoader.getController();
             controller.setOnServerConnectedCallback(() -> {
+                checker.setDaemon(true);
+                checker.start();
                 logger.debug("Loading AdministratorValidierungView.fxml");
                 FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("views/AdministratorValidierungView.fxml"));
                 Parent root2 = fxmlLoader2.load();
@@ -110,5 +123,6 @@ public class Main extends Application {
         logger.info("Initialising program...");
         //saveServerCredentials("", "", "", "", false);
         launch();
+
     }
 }

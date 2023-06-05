@@ -1,5 +1,6 @@
 package com.golkov.inventv.controller.detailcontroller;
 
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.model.daos.AusleiheDAO;
 import com.golkov.inventv.model.daos.BenutzerDAO;
 import com.golkov.inventv.model.daos.ObjektDAO;
@@ -104,6 +105,12 @@ public class AusleihenDetailViewController implements Initializable {
     @FXML
     private ComboBox<ObjektEntity> cbAusleiheObjekt;
 
+    private DataObserver dataObserver;
+
+    public void setObserver(DataObserver observer) {
+        this.dataObserver = observer;
+    }
+
     @FXML
     void speichernButtonTapped(ActionEvent event) {
         AusleihEntity aentity = new AusleihEntity();
@@ -128,6 +135,9 @@ public class AusleihenDetailViewController implements Initializable {
                 }
             });
         } else {
+            if (dataObserver != null) {
+                dataObserver.updateData(); // Aktualisierung der Daten anfordern
+            }
             stage.close();
         }
     }

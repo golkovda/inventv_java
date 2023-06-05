@@ -51,7 +51,7 @@ public class BenutzerdatenDetailViewController extends DetailViewControllerBase<
             checkAdministrator.setDisable(true);
 
             AusleiheDAO a_dao = new AusleiheDAO();
-            ObservableList<AusleihEntity> benutzerAusleihen = a_dao.getAusleihenByBenutzer(UnchangedEntity);
+            ObservableList<AusleihEntity> benutzerAusleihen = a_dao.getAusleihenByBenutzer(UnchangedEntity, 0);
             lstOffeneBenutzerAusleihen.setItems(benutzerAusleihen);
 
             lblCountOffeneAusleihen.setText(Integer.toString(benutzerAusleihen.size()));

@@ -31,19 +31,18 @@ public class AusleiheDAO implements IEntityDAO<AusleihEntity>{
         sessionFactory = HibernateUtil.getSessionFactory();
     }
 
-    public ObservableList<AusleihEntity> getAusleihenByBenutzer(BenutzerEntity benutzer){
+    public ObservableList<AusleihEntity> getAusleihenByBenutzer(BenutzerEntity benutzer, int abgegeben){
         ObjektEntity null_entity = new ObjektEntity();
         null_entity.setID(-1);
-        return filterAusleihe(benutzer, null_entity, LocalDate.of(1900,1,1));
+        return filterAusleihe(benutzer, null_entity, LocalDate.of(1900,1,1), abgegeben);
     }
 
-    public AusleihEntity getAusleiheByObjekt(ObjektEntity objekt, int abgegeben){
+    public ObservableList<AusleihEntity> getOffeneAusleihen(){
         BenutzerEntity null_entity = new BenutzerEntity();
         null_entity.setID(-1);
-        ObservableList<AusleihEntity> foundEntites = filterAusleihe(null_entity, objekt, LocalDate.of(1900,1,1), abgegeben);
-        if(foundEntites.size() == 1)
-            return foundEntites.get(0);
-        return null;
+        ObjektEntity null_entity2 = new ObjektEntity();
+        null_entity2.setID(-1);
+        return filterAusleihe(null_entity,null_entity2, LocalDate.of(1900,1,1),0);
     }
 
     public ObservableList<AusleihEntity> getAusleihenByObjekt(ObjektEntity objekt){

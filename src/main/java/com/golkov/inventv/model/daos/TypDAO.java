@@ -96,6 +96,31 @@ public class TypDAO implements IEntityDAO<TypEntity>{
         return typList;
     }
 
+    public long getEntityCount() {
+        logger.info("Trying to get the count of all entries in 'Typ' table");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        long count = 0;
+        try {
+            transaction = session.beginTransaction();
+            Query<Long> query = session.createQuery("select count(*) from TypEntity", Long.class);
+            count = query.uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
+            logger.error("Failed to get count of entries from 'Typ' table: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        logger.debug("Successfully retrieved count of entries from 'Typ' table");
+        return count;
+    }
+
+
     @Override
     public int updateEntity(TypEntity oldEntity, TypEntity newEntity) {
         logger.info("Trying to update TypEntity in the database");

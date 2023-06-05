@@ -136,7 +136,7 @@
                      <children>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../com.golkov.inventv.images/plus.png" />
+                              <Image url="@../../../../images/plus.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblButtonText">

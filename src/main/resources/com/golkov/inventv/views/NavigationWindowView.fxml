@@ -37,7 +37,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../com.golkov.inventv.images/connection.png" />
+                        <Image url="@../../../../images/connection.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -153,7 +153,7 @@
                 </Button>
                 <ImageView fx:id="imgLogo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                     <image>
-                        <Image url="@../../../../com.golkov.inventv.images/Placeholder.png" />
+                        <Image url="@../../../../images/logo_beschriftet.png" />
                     </image>
                 </ImageView>
             </children>

@@ -3,22 +3,17 @@ package com.golkov.inventv.controller.listcontroller;
 import com.golkov.inventv.AlertTexts;
 import com.golkov.inventv.Globals;
 import com.golkov.inventv.Main;
-import com.golkov.inventv.ViewNavigation;
-import com.golkov.inventv.controller.NavigationViewController;
-import com.golkov.inventv.controller.detailcontroller.BenutzerdatenDetailViewController;
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.controller.detailcontroller.TypAblageortDetailViewController;
 import com.golkov.inventv.model.daos.AblageortDAO;
 import com.golkov.inventv.model.daos.ObjektDAO;
 import com.golkov.inventv.model.daos.TypDAO;
 import com.golkov.inventv.model.entities.AblageortEntity;
-import com.golkov.inventv.model.entities.BenutzerEntity;
 import com.golkov.inventv.model.entities.TAEntity;
 import com.golkov.inventv.model.entities.TypEntity;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,15 +22,12 @@ import javafx.fxml.Initializable;
 
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -44,7 +36,8 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class TypAblageortListeViewController implements Initializable {
+public class TypAblageortListeViewController implements Initializable, DataObserver {
+
 
     private ObservableList<TAEntity> foundTypEntities = FXCollections.observableArrayList();
     private ObservableList<TAEntity> foundAblageortEntities = FXCollections.observableArrayList();
@@ -55,6 +48,11 @@ public class TypAblageortListeViewController implements Initializable {
 
     String typbezeichnung_temp = "";
     String aortbezeichnung_temp = "";
+
+    @Override
+    public void updateData() {
+        sucheStartenButtonTapped(new ActionEvent());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -90,13 +88,13 @@ public class TypAblageortListeViewController implements Initializable {
 
             {
                 // Setze das Bild für den Edit-Button
-                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/edit.png")));
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/edit.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 editButton.setGraphic(imageView);
 
                 // Setze das Bild für den Delete-Button
-                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/delete.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 deleteButton.setGraphic(imageView);
@@ -108,7 +106,7 @@ public class TypAblageortListeViewController implements Initializable {
                         Stage stage = new Stage();
                         FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/TypAblageortDetailView.fxml"));
                         TypAblageortDetailViewController controller = new TypAblageortDetailViewController(typ, stage);
-
+                        controller.setObserver(TypAblageortListeViewController.this);
                         loader.setController(controller);
                         Parent root = loader.load();
 
@@ -180,13 +178,13 @@ public class TypAblageortListeViewController implements Initializable {
 
             {
                 // Setze das Bild für den Edit-Button
-                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/edit.png")));
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/edit.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 editButton.setGraphic(imageView);
 
                 // Setze das Bild für den Delete-Button
-                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/delete.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 deleteButton.setGraphic(imageView);
@@ -198,7 +196,7 @@ public class TypAblageortListeViewController implements Initializable {
                         Stage stage = new Stage();
                         FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/TypAblageortDetailView.fxml"));
                         TypAblageortDetailViewController controller = new TypAblageortDetailViewController(aort, stage);
-
+                        controller.setObserver(TypAblageortListeViewController.this);
                         loader.setController(controller);
                         Parent root = loader.load();
 
@@ -341,6 +339,7 @@ public class TypAblageortListeViewController implements Initializable {
                 controller = new TypAblageortDetailViewController(1, stage);
             }
 
+            controller.setObserver(TypAblageortListeViewController.this);
             loader.setController(controller);
             Parent root = loader.load();
 

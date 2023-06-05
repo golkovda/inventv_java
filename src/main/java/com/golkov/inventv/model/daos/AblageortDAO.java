@@ -95,6 +95,30 @@ public class AblageortDAO implements IEntityDAO<AblageortEntity>{
         return ablageortList;
     }
 
+    public long getEntityCount() {
+        logger.info("Trying to get the count of all entries in 'Ablageort' table");
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        long count = 0;
+        try {
+            transaction = session.beginTransaction();
+            Query<Long> query = session.createQuery("select count(*) from AblageortEntity", Long.class);
+            count = query.uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
+            logger.error("Failed to get count of entries from 'Ablageort' table: " + Arrays.toString(e.getStackTrace()));
+            if (transaction != null) {
+                logger.info("Rolling back transaction...");
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        logger.debug("Successfully retrieved count of entries from 'Ablageort' table");
+        return count;
+    }
+
     @Override
     public int updateEntity(AblageortEntity oldEntity, AblageortEntity newEntity) {
         logger.info("Trying to update AblageortEntity in the database");

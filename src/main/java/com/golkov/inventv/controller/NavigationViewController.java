@@ -161,7 +161,10 @@ public class NavigationViewController implements Initializable {
         resetAllButtonFonts();
         btnInfo.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Über das Programm");
-        //TODO: InfoView.fxml erstellen und Code ergänzen
+        if (ViewNavigation.getSize(5) == 0)
+            Globals.loadFreshPane(vpAnchorPane, "views/InfoView.fxml", 5);
+        else
+            Globals.loadExistingPane(vpAnchorPane, 5);
     }
 
     @FXML
@@ -182,10 +185,7 @@ public class NavigationViewController implements Initializable {
         resetAllButtonFonts();
         btnStartseite.setStyle("-fx-font-weight: bold;");
         lblBriefText.setText("Startseite");
-        if (ViewNavigation.getSize(0) == 0)
-            Globals.loadFreshPane(vpAnchorPane, "views/StartseiteView.fxml", 0);
-        else
-            Globals.loadExistingPane(vpAnchorPane, 0);
+        Globals.loadFreshPane(vpAnchorPane, "views/StartseiteView.fxml", 0);
     }
 
     private void resetAllButtonFonts(){

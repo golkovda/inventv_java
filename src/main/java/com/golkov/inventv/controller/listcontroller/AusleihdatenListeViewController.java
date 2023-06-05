@@ -3,14 +3,13 @@ package com.golkov.inventv.controller.listcontroller;
 import com.golkov.inventv.AlertTexts;
 import com.golkov.inventv.Globals;
 import com.golkov.inventv.Main;
+import com.golkov.inventv.controller.DataObserver;
 import com.golkov.inventv.controller.detailcontroller.AusleihenDetailViewController;
-import com.golkov.inventv.controller.detailcontroller.TypAblageortDetailViewController;
 import com.golkov.inventv.model.daos.*;
 import com.golkov.inventv.model.entities.*;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,7 +23,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -34,10 +32,9 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AusleihdatenListeViewController extends ListeViewControllerBase<AusleihEntity> implements Initializable{
+public class AusleihdatenListeViewController extends ListeViewControllerBase<AusleihEntity> implements Initializable, DataObserver {
 
     private static final Logger logger = LogManager.getLogger(AusleihdatenListeViewController.class);
     AusleiheDAO a_dao = new AusleiheDAO();
@@ -47,6 +44,10 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
         foundEntities = FXCollections.observableArrayList();
     }
 
+    @Override
+    public void updateData() {
+        sucheStartenButtonTapped(new ActionEvent());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -109,13 +110,13 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
 
             {
                 // Setze das Bild für den Delete-Button
-                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/delete.png")));
+                ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/delete.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 deleteButton.setGraphic(imageView);
 
                 // Setze das Bild für den Ausleihe-Button
-                imageView = new ImageView(new Image(getClass().getResourceAsStream("/com.golkov.inventv.images/return.png")));
+                imageView = new ImageView(new Image(getClass().getResourceAsStream("/images/return.png")));
                 imageView.setFitHeight(15);
                 imageView.setFitWidth(15);
                 rueckgabeButton.setGraphic(imageView);
@@ -352,7 +353,7 @@ public class AusleihdatenListeViewController extends ListeViewControllerBase<Aus
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/AusleihenDetailView.fxml"));
             AusleihenDetailViewController controller = new AusleihenDetailViewController(stage);
-
+            controller.setObserver(AusleihdatenListeViewController.this);
             loader.setController(controller);
             Parent root = loader.load();
 

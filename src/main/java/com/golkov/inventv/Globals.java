@@ -2,12 +2,15 @@ package com.golkov.inventv;
 
 import com.golkov.inventv.controller.NavigationViewController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.cfg.annotations.reflection.internal.XMLContext;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +34,7 @@ public class Globals {
 
     public static String current_user;
     private static final Logger logger = LogManager.getLogger(Globals.class);
+    public static String version = "2023.06c";
 
 
     public static void loadFreshPane(AnchorPane ap, String resource, int index){
@@ -79,5 +83,6 @@ public class Globals {
         Optional<ButtonType> result = alert.showAndWait();
         result.ifPresent(rs -> callback.accept(finalAlert));
     }
+
 
 }
